@@ -1,0 +1,12 @@
+<odoo>
+    <record id="stock.product_template_action_product" model="ir.actions.act_window">
+       <field name="view_mode">tree,kanban,form,activity</field>
+       <field name="view_ids" />
+       <field name="view_id"/>
+    </record>
+
+    <!-- <record id="base.action_partner_form" model="ir.actions.act_window">
+        <field name="view_mode">tree,kanban,form,activity</field>
+       <field name="view_ids" eval="[(6,0,[])]"></field>
+    </record> -->
+</odoo>
