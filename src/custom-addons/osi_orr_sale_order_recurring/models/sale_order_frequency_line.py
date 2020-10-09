@@ -5,6 +5,7 @@ from odoo import fields, models
 
 class SaleOrderFrequencyLine(models.Model):
     _name = "sale.order.frequency.line"
+    _description = "SO Frequency Line"
 
     sequence = fields.Integer(
         string="Sequence")

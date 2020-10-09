@@ -1,0 +1,21 @@
+<odoo>
+
+    <record id="contract_contract_form_view_inherit_so_recurring" model="ir.ui.view">
+        <field name="name">contract.contract.form.recurring.sale.recurring</field>
+        <field name="model">contract.contract</field>
+        <field name="inherit_id" ref="contract.contract_contract_form_view"/>
+        <field name="arch" type="xml">
+            <group name="recurring_invoices" position="after">
+                <group>
+                    <field name="billing_partner_id" context="{'show_address': 1}" options='{"always_reload": True}'/>
+                    <field name="advance_number" attrs="{'invisible': [('contract_type', '=', 'purchase')]}"/>
+                    <field name="min_bill_hours"/>
+                    <field name="per_visit_amt_restriction"/>
+                    <field name="default_analytic_account_id"/>
+                    <field name="default_analytic_account_tag_id"/>
+                </group>
+            </group>
+        </field>
+    </record>
+
+</odoo>

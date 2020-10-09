@@ -15,6 +15,7 @@
     ],
     'data': [
         'security/ir.model.access.csv',
+        'views/contract_template.xml',
     ],
     'maintainers': [
         'smangukiya',

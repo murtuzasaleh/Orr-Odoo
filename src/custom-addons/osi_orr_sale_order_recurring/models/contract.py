@@ -1,7 +1,7 @@
 # Copyright (C) 2020 Open Source Integrators
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import api, fields, models, _
+from odoo import fields, models
 
 
 class ContractContract(models.Model):
@@ -14,9 +14,10 @@ class ContractContract(models.Model):
         string="PO Number"
     )
     service_start_date = fields.Date(
-        string="Service Start date", required=True)
+        string="Service Start Date", required=True,
+        default=lambda self: fields.Date.context_today(self))
     service_end_date = fields.Date(
-        string="Service End date")
+        string="Service End Date")
     old_contract_id = fields.Many2one(
         'contract.contract', string='Copied from')
     state = fields.Selection(

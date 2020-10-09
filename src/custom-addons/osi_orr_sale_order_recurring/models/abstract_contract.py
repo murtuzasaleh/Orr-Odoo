@@ -14,9 +14,9 @@ class ContractAbstractContract(models.AbstractModel):
     billing_partner_id = fields.Many2one(
         "res.partner", string="Billing Customer"
     )
-    min_bill_hours = fields.Float(string="Minimum billable hours")
+    min_bill_hours = fields.Float(string="Minimum Billable Hours")
     per_visit_amt_restriction = fields.Float(
-        string="Not to exceed total amount per visit")
+        string="Not to Exceed Total Amount Per Visit")
     default_analytic_account_id = fields.Many2one(
         "account.analytic.account", string="Default Analytic Account"
     )
@@ -24,3 +24,8 @@ class ContractAbstractContract(models.AbstractModel):
         "account.analytic.tag", string="Default Analytic Tags"
     )
     fsm_notes = fields.Text(string="General FSM Notes")
+    contract_type = fields.Selection(
+        selection=[('sale', 'Sale Order'), ('purchase', 'Supplier')],
+        default='sale',
+        index=True,
+    )

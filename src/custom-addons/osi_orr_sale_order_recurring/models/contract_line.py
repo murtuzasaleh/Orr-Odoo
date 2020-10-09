@@ -12,7 +12,7 @@ class ContractLine(models.Model):
     )
     specific_fsm_notes = fields.Text(string="Specific FSM Notes")
     sale_rep_id = fields.Many2one(
-        "res.user", string="Sales Rep"
+        "res.users", string="Sales Rep"
     )
     is_subcontracted = fields.Boolean(
         string="Is Subcontracted"

@@ -5,6 +5,7 @@ from odoo import fields, models
 
 class FrequencyLineTemplate(models.Model):
     _name = "frequency.line.template"
+    _description = "Frequency Line Template"
 
     sequence = fields.Integer(
         string="Sequence")

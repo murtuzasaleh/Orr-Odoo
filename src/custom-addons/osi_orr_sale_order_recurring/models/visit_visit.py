@@ -5,6 +5,7 @@ from odoo import fields, models
 
 class VisitVisit(models.Model):
     _name = "visit.visit"
+    _description = "Visit"
     _order = "so_due_date"
 
     contract_line_id = fields.Many2one(

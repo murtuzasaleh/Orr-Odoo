@@ -5,6 +5,7 @@ from odoo import fields, models
 
 class SaleOrderFrequency(models.Model):
     _name = "sale.order.frequency"
+    _description = "SO Frequency"
 
     name = fields.Char(
         string="Frequency Name")

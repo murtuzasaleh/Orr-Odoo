@@ -1,0 +1,61 @@
+<odoo>
+
+    <menuitem id="contract.menu_config_contract"
+              name="Contracts"
+              sequence="1"
+              parent="sale.menu_sale_config"
+    />
+
+    <record id="contract_template_form_view_inherit_so_recurring" model="ir.ui.view">
+        <field name="name">contract.template form view (in contract)</field>
+        <field name="model">contract.template</field>
+        <field name="inherit_id" ref="contract.contract_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='contract_type']" position="after">
+                <field name="advance_number" attrs="{'invisible': [('contract_type', '=', 'purchase')]}"/>
+            </xpath>
+            <group name="group_main" position="after">
+                <group>
+                    <field name="billing_partner_id" context="{'show_address': 1}" options='{"always_reload": True}'/>
+                </group>
+                <group col="4">
+                    <field name="min_bill_hours"/>
+                    <field name="per_visit_amt_restriction"/>
+                    <field name="default_analytic_account_id"/>
+                    <field name="default_analytic_account_tag_id"/>
+                </group>
+                <group>
+                    <field name="fsm_notes"/>
+                </group>
+            </group>
+        </field>
+    </record>
+
+    <record id="contract_template_search_view_inherit_so_recurring" model="ir.ui.view">
+        <field name="name">contract.template search view (in contract)</field>
+        <field name="model">contract.template</field>
+        <field name="inherit_id" ref="contract.contract_template_search_view"/>
+        <field name="arch" type="xml">
+            <field name="journal_id" position="after">
+                <field name="billing_partner_id" />
+                <field name="default_analytic_account_id" />
+                <field name="default_analytic_account_tag_id" />
+            </field>
+            <filter name="journal_id" position="after">
+                <filter name="billing_partner_id"
+                        string="Billing Customer"
+                        context="{'group_by': 'billing_partner_id'}"
+                        />
+                <filter name="default_analytic_account_id"
+                        string="Default Analytic Account"
+                        context="{'group_by': 'default_analytic_account_id'}"
+                        />
+                <filter name="default_analytic_account_tag_id"
+                        string="Default Analytic Tags"
+                        context="{'group_by': 'default_analytic_account_tag_id'}"
+                        />
+            </filter>
+        </field>
+    </record>
+
+</odoo>
