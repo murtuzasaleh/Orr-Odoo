@@ -8,7 +8,7 @@ class ContractAbstractContract(models.AbstractModel):
     _inherit = "contract.abstract.contract"
 
     advance_number = fields.Integer(
-        string="Days to create SOs in advance",
+        string="Days to Create SO in Advance",
         default=60
     )
     billing_partner_id = fields.Many2one(

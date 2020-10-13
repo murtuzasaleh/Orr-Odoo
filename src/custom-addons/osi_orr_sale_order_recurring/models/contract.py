@@ -1,14 +1,14 @@
 # Copyright (C) 2020 Open Source Integrators
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import fields, models
+from odoo import api, fields, models
 
 
 class ContractContract(models.Model):
     _inherit = 'contract.contract'
 
     is_po_required = fields.Boolean(
-        string="PO required"
+        string="PO Required"
     )
     po_number = fields.Char(
         string="PO Number"
@@ -25,6 +25,12 @@ class ContractContract(models.Model):
          ('active', 'Active'),
          ('expired', 'Expired')],
         string="State",
+        default='draft',
     )
     initial_sale_id = fields.Many2one(
         'sale.order', string='Initial sale order')
+
+    @api.multi
+    def activate_contract(self):
+        for rec in self:
+            rec.state = 'active'

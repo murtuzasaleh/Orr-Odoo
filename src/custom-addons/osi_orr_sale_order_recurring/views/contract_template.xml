@@ -24,9 +24,8 @@
                     <field name="default_analytic_account_id"/>
                     <field name="default_analytic_account_tag_id"/>
                 </group>
-                <group>
-                    <field name="fsm_notes"/>
-                </group>
+                <separator string="General FSM Notes"/>
+                <field name="fsm_notes" nolable="1"/>
             </group>
         </field>
     </record>

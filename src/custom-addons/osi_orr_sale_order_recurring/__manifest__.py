@@ -16,6 +16,11 @@
     'data': [
         'security/ir.model.access.csv',
         'views/contract_template.xml',
+        'views/contract.xml',
+        'views/contract_line.xml',
+        'views/recurrence_recurrence.xml',
+        'views/sale_order_frequency.xml',
+        'views/visit_visit.xml',
     ],
     'maintainers': [
         'smangukiya',

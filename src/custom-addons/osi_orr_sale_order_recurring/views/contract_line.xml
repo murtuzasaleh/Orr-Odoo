@@ -1,0 +1,63 @@
+<odoo>
+
+	<record id="contract_line_form_view_inherit_so_recurring" model="ir.ui.view">
+        <field name="name">contract.line form view (in contract)</field>
+        <field name="model">contract.line</field>
+        <field name="inherit_id" ref="contract.contract_line_form_view"/>
+        <field name="arch" type="xml">
+           <group name="recurrence_info" position="after">
+            	<group col="4">
+	                <field name="location_id"/>
+	                <field name="sale_rep_id"/>
+	                <field name="is_subcontracted"/>
+	                <field name="tm_flat_rate"/>
+	                <field name="frequency_id"/>
+	            </group>
+	            <separator string="Visit Setup"/>
+                <field name="so_frequency_line_ids" nolable="1">
+                	<tree string="Visit Setup">
+                		<field name="sequence" widget="handle"/>
+                		<field name="recurrence_id"/>
+                		<field name="visit_type"/>
+                		<field name="hours"/>
+                		<field name="unit_price"/>
+                		<field name="first_service"/>
+                	</tree>
+                	<form string="Visit Setup">
+                		<sheet>
+                			<group>
+                				<field name="sequence"/>
+		                		<field name="recurrence_id"/>
+		                		<field name="recurrence_ids"/>
+		                		<field name="visit_type"/>
+		                		<field name="hours"/>
+		                		<field name="unit_price"/>
+		                		<field name="first_service"/>
+		                		<field name="contract_line_id"/>
+		                	</group>
+                		</sheet>
+                	</form>
+                </field>
+                <group>
+                	<field name="no_future_visits"/>
+                </group>
+                <separator string="Visit"/>
+                <field name="visit_ids" nolable="1">
+                	<tree string="Visit">
+                		<field name="so_due_date"/>
+                		<field name="recurrence_id"/>
+                		<field name="visit_type"/>
+                		<field name="hours"/>
+                		<field name="unit_price"/>
+                		<field name="sale_id"/>
+                		<field name="fsm_order_id"/>
+                		<field name="fso_status"/>
+                		<field name="fso_schedule_date"/>
+                		<field name="actual_hrs"/>
+                	</tree>
+                </field>
+            </group>
+        </field>
+    </record>
+	
+</odoo>

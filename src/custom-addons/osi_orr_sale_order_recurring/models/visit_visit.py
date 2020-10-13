@@ -12,7 +12,7 @@ class VisitVisit(models.Model):
         "contract.line", string="Contract Line"
     )
     contract_id = fields.Many2one(
-        "contract.line",
+        "contract.contract",
         related="contract_line_id.contract_id",
         string="Contract"
     )

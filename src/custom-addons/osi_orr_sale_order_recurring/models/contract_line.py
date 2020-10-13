@@ -29,7 +29,7 @@ class ContractLine(models.Model):
         inverse_name="contract_line_id",
     )
     no_future_visits = fields.Integer(
-        string="No. of future visits"
+        string="No. of Future Visits"
     )
     visit_ids = fields.One2many(
         string="Visits",

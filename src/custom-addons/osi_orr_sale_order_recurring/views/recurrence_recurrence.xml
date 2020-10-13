@@ -1,0 +1,40 @@
+<odoo>
+
+    <record id="recurrence_recurrence_view_tree" model="ir.ui.view">
+        <field name="name">recurrence.recurrence.tree</field>
+        <field name="model">recurrence.recurrence</field>
+        <field name="arch" type="xml">
+            <tree string="Recurrence" editable="bottom">
+                <field name="name" required="1"/>
+                <field name="factor"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="recurrence_recurrence_view_search" model="ir.ui.view">
+        <field name="name">recurrence.recurrence.search</field>
+        <field name="model">recurrence.recurrence</field>
+        <field name="arch" type="xml">
+            <search string="Recurrence">
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_recurrence_recurrence_form" model="ir.actions.act_window">
+        <field name="name">Recurrence</field>
+        <field name="res_model">recurrence.recurrence</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="recurrence_recurrence_view_tree"/>
+        <field name="search_view_id" ref="recurrence_recurrence_view_search"/>
+    </record>
+
+    <menuitem id="menu_config_recurrence"
+              name="Recurrence"
+              action="action_recurrence_recurrence_form"
+              parent="contract.menu_config_contract"
+    />
+
+</odoo>
