@@ -15,6 +15,8 @@
     ],
     'data': [
         'security/ir.model.access.csv',
+        'data/contract_cron.xml',
+        'data/contract_renew_cron.xml',
         'views/contract_template.xml',
         'views/contract.xml',
         'views/contract_line.xml',
