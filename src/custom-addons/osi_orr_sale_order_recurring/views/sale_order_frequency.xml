@@ -26,7 +26,6 @@
                             <field name="recurrence_id"/>
                             <field name="recurrence_ids"/>
                             <field name="visit_type"/>
-                            <field name="so_frequency_id"/>
                         </tree>
                         <form string="Frequency Line Template">
                             <sheet>
@@ -35,7 +34,6 @@
                                     <field name="recurrence_id"/>
                                     <field name="recurrence_ids"/>
                                     <field name="visit_type"/>
-                                    <field name="so_frequency_id"/>
                                 </group>
                             </sheet>
                         </form>
