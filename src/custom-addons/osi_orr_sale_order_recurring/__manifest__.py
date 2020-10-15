@@ -15,17 +15,18 @@
     ],
     'data': [
         'security/ir.model.access.csv',
-        'data/contract_cron.xml',
-        'data/contract_renew_cron.xml',
+        'data/visit_cron.xml',
         'views/contract_template.xml',
         'views/contract.xml',
         'views/contract_line.xml',
         'views/recurrence_recurrence.xml',
         'views/sale_order_frequency.xml',
         'views/visit_visit.xml',
+        'views/sale_order_view.xml',
     ],
     'maintainers': [
         'smangukiya',
     ],
     "installable": True,
+    "post_init_hook": "_deactivate_contract_cron",
 }

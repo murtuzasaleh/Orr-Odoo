@@ -8,7 +8,7 @@ class ContractLine(models.Model):
     _inherit = 'contract.line'
 
     location_id = fields.Many2one(
-        "res.partner", string="Location"
+        "fsm.location", string="Location"
     )
     specific_fsm_notes = fields.Text(string="Specific FSM Notes")
     sale_rep_id = fields.Many2one(
@@ -48,4 +48,22 @@ class ContractLine(models.Model):
                      'visit_type': freq_templ_rec.visit_type,
                      'contract_line_id': self.id,
                      }))
-            self.so_frequency_line_ids = visit_setup_list
+            if visit_setup_list:
+                self.so_frequency_line_ids = False
+                self.so_frequency_line_ids = visit_setup_list
+        else:
+            self.so_frequency_line_ids = False
+
+    @api.multi
+    def generate_visits(self):
+        for rec in self:
+            # Todo
+            pass
+        return True
+
+    @api.multi
+    def update_visits_pricing(self):
+        for rec in self:
+            # Todo
+            pass
+        return True

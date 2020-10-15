@@ -29,3 +29,9 @@ class ContractAbstractContract(models.AbstractModel):
         default='sale',
         index=True,
     )
+    type = fields.Selection(
+        [('invoice', 'Invoice'),
+         ('sale', 'Sale')],
+        string='Type',
+        default='sale',
+    )

@@ -1,6 +1,6 @@
 # Copyright (C) 2020 Open Source Integrators
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
-from odoo import fields, models
+from odoo import api, fields, models
 
 
 class VisitVisit(models.Model):
@@ -41,3 +41,8 @@ class VisitVisit(models.Model):
         string="Status"
     )
     fso_schedule_date = fields.Date(string="FSO Schedule Date")
+
+    @api.model
+    def cron_contract_recurring_create_sale(self):
+        # To DO
+        return True

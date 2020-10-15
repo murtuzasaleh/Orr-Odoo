@@ -17,7 +17,7 @@
 	                <field name="sale_rep_id"/>
 	                <field name="is_subcontracted"/>
 	                <field name="tm_flat_rate"/>
-	                <field name="frequency_id"/>
+	                <field name="frequency_id"/> 
 	            </group>
 	            <separator string="Visit Setup"/>
                 <field name="so_frequency_line_ids" nolable="1">
@@ -46,6 +46,12 @@
                 <group>
                 	<field name="no_future_visits"/>
                 </group>
+                <group>
+                    <button name="generate_visits"
+                            type="object"
+                            string="Generate Visits"
+                            class="btn-primary"/>
+                </group>
                 <separator string="Visit"/>
                 <field name="visit_ids" nolable="1">
                 	<tree string="Visit">
@@ -61,6 +67,12 @@
                 		<field name="actual_hrs"/>
                 	</tree>
                 </field>
+                <group>
+                    <button name="update_visits_pricing"
+                            type="object"
+                            string="Update Visits Pricing"
+                            class="btn-primary"/>
+                </group>
             </group>
         </field>
     </record>
