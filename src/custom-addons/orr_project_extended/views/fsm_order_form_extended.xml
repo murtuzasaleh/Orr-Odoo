@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id ="fsm_order_form_extended" model="ir.ui.view">
+        <field name="model">fsm.order</field>
+        <field name="inherit_id" ref="fieldservice.fsm_order_form"/>
+        <field name="arch" type="xml">
+            <field name="tag_ids" position="after">
+                <field name="accounting_tag"/>
+            </field>
+        </field> 
+    </record>
+</odoo>

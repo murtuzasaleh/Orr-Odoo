@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id ="project_task_form_extended" model="ir.ui.view">
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2"/>
+        <field name="arch" type="xml">
+            <field name="tag_ids" position="after">
+                <field name="accounting_tag"/>
+            </field>
+        </field> 
+    </record>
+</odoo>
