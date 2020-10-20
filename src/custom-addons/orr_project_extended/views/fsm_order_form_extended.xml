@@ -5,7 +5,7 @@
         <field name="inherit_id" ref="fieldservice.fsm_order_form"/>
         <field name="arch" type="xml">
             <field name="tag_ids" position="after">
-                <field name="accounting_tag"/>
+                <field name="accounting_tag" widget="many2many_tags"/>
             </field>
         </field> 
     </record>

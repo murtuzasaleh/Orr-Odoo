@@ -5,7 +5,7 @@
         <field name="inherit_id" ref="project.view_task_form2"/>
         <field name="arch" type="xml">
             <field name="tag_ids" position="after">
-                <field name="accounting_tag"/>
+                <field name="accounting_tag" widget="many2many_tags"/>
             </field>
         </field> 
     </record>
