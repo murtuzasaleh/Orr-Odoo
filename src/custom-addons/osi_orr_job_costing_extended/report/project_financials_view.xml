@@ -45,6 +45,20 @@
         <field name="search_view_id" ref="project_financials_filter"/>
     </record>
 
+    <!-- Cron to calculate project financials -->
+    <record id="project_financials_calc_cron" model="ir.cron">
+      <field name="name">Project Financials: Calculate Open Projects</field>
+      <field name="model_id" ref="model_project_project"/>
+      <field name="state">code</field>
+      <field name="code">model.compute_project_financials()</field>
+      <field name="active" eval="True"/>
+      <field name="user_id" ref="base.user_root"/>
+      <field name="interval_number">1</field>
+      <field name="interval_type">days</field>
+      <field name="numbercall">-1</field>
+      <field name="doall" eval="True"/>
+    </record>
+
     <menuitem id="menu_project_financials_view"
         parent="project.menu_project_report"
         action="project_financials_view_action"

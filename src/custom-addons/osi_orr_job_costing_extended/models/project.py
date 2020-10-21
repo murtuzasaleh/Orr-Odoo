@@ -14,6 +14,25 @@ class Project(models.Model):
     )
 
     @api.multi
+    def compute_project_financials(self):
+        self._compute_revised_estimate()
+        self._compute_revised_contract()
+        self._compute_original_estimate()
+        self._compute_original_contract()
+        self._compute_calculated_complete()
+        self._compute_revenue_earned()
+        self._compute_over_under_billed()
+        self._compute_projected_cost_complete()
+        self._compute_projected_profit_loss()
+        self._compute_projected_profit()
+        self._compute_last_cost_date()
+        self._compute_costs()
+        self._compute_invoiced_no_tax()
+        self._compute_last_date_invoiced()
+        self._compute_payment_received()
+        self._compute_last_payment_received()
+
+    @api.multi
     def _compute_revised_estimate(self):
         for rec in self:
             so_rec = rec.sale_order_id
@@ -169,64 +188,80 @@ class Project(models.Model):
     projected_profit = fields.Float(
         string='Projected (%) Profit',
         compute='_compute_projected_profit',
+        store=True,
     )
     projected_profit_loss = fields.Float(
         string='Project Profit (Loss)',
         compute='_compute_projected_profit_loss',
+        store=True,
     )
     projected_cost_complete = fields.Float(
         string='Projected Cost to Complete',
         compute='_compute_projected_cost_complete',
+        store=True,
     )
     over_under_billed = fields.Float(
         string='Over/Under Billed',
         compute='_compute_over_under_billed',
+        store=True,
     )
     revenue_earned = fields.Float(
         string='Revenue Earned',
         compute='_compute_revenue_earned',
+        store=True,
     )
     calculated_complete = fields.Float(
         string='Calculated (%) Complete',
         compute='_compute_calculated_complete',
+        store=True,
     )
     revised_contract = fields.Float(
         string='Revised Contract',
-        compute='_compute_revised_contract'
+        compute='_compute_revised_contract',
+        store=True,
     )
     original_contract = fields.Float(
         string='Original Contract',
         compute='_compute_original_contract',
+        store=True,
     )
     revised_estimate = fields.Float(
         string='Revised Estimate',
         compute='_compute_revised_estimate',
+        store=True,
     )
     original_estimate = fields.Float(
         string='Original Estimate',
         compute='_compute_original_estimate',
+        store=True,
     )
     last_cost_date = fields.Date(
         string='Last Cost Date',
         compute='_compute_last_cost_date',
+        store=True,
     )
     costs = fields.Float(
         string='Costs',
         compute='_compute_costs',
+        store=True,
     )
     last_date_invoiced = fields.Date(
         string='Last Date Invoiced',
         compute='_compute_last_date_invoiced',
+        store=True,
     )
     invoiced_no_tax = fields.Float(
         string='Invoiced (no tax)',
         compute='_compute_invoiced_no_tax',
+        store=True,
     )
     last_payment_received = fields.Date(
         string='Last Payment Received',
         compute='_compute_last_payment_received',
+        store=True,
     )
     payment_received = fields.Float(
         string='Payment received',
         compute='_compute_payment_received',
+        store=True,
     )
