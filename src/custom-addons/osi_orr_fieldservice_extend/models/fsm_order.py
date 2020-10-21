@@ -191,6 +191,14 @@ class FSMOrder(models.Model):
     territory_id = fields.Many2one(
         'fsm.territory', 'Territory', related='location_id.territory_id', store=True)
 
+    @api.model
+    def create(self, vals):
+        if vals.get('person_id', False):
+            stage_id = self.env['fsm.stage'].search(
+                    [('stage_type', '=', 'order'), ('name', '=', 'Assigned')], limit=1)
+            vals.update({'stage_id': stage_id.id})
+        return super().create(vals)
+
     @api.multi
     def write(self, vals):
         duration = 0.0
@@ -213,4 +221,8 @@ class FSMOrder(models.Model):
                     self._cr.execute("""UPDATE fsm_order
                         SET scheduled_date_start=%s,scheduled_date_end=%s
                         WHERE id = %s""", (new_date, fsm_end_date, fsm_rec.id,))
+            if vals.get('person_id', False) and rec.stage_id.name in ['New','Scheduled']:
+                stage_id = rec.env['fsm.stage'].search(
+                    [('stage_type', '=', 'order'), ('name', '=', 'Assigned')], limit=1)
+                rec.write({'stage_id': stage_id.id})
         return res
