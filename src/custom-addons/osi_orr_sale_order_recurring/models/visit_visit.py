@@ -42,7 +42,20 @@ class VisitVisit(models.Model):
     )
     fso_schedule_date = fields.Date(string="FSO Schedule Date")
 
+    def _recurring_create_sale(self):
+        sale = self.contract_id.recurring_create_sale()
+        self.sale_id = sale.id
+        return True
+
     @api.model
     def cron_contract_recurring_create_sale(self):
-        # To DO
+        visit_rec = self.search([('sale_id', '=', False)])
+        for rec in visit_rec:
+            today = fields.Date.from_string(fields.Date.today())
+            so_due_date = fields.Date.from_string(rec.so_due_date)
+            diff_time = (so_due_date - today).days
+            if rec.contract_id.advance_number == diff_time:
+                rec._recurring_create_sale()
+            elif so_due_date == today:
+                rec._recurring_create_sale()
         return True

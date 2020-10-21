@@ -34,3 +34,9 @@ class ContractContract(models.Model):
     def activate_contract(self):
         for rec in self:
             rec.state = 'active'
+
+    @api.multi
+    def _prepare_sale(self, date_ref):
+        rec = super()._prepare_sale(date_ref)
+        rec.update({'contract_id': self.id})
+        return rec

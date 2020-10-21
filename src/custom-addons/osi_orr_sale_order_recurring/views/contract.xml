@@ -5,8 +5,9 @@
         <field name="model">contract.contract</field>
         <field name="inherit_id" ref="contract.contract_contract_form_view"/>
         <field name="arch" type="xml">
-            <field name="type" invisible="1"/>
-            <field name="sale_autoconfirm" invisible="1"/>
+            <group name="recurring_sale_or_invoicing" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </group>
             <xpath expr="//button[@name='recurring_create_invoice']" position="attributes">
                 <attribute name="invisible">1</attribute>
             </xpath>
@@ -25,24 +26,34 @@
             <field name="contract_type" position="attributes">
                 <attribute name="invisible">0</attribute>
             </field>
+            <field name="partner_id" position="after">
+                <field name="billing_partner_id" context="{'show_address': 1}" options='{"always_reload": True}'/>
+            </field>
+            <field name="recurring_next_date" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <field name="date_end" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <field name="recurring_next_date" position="after">
+                <field name="service_start_date"/>
+            </field>
+            <field name="date_end" position="after">
+                <field name="service_end_date"/>
+            </field>
             <group name="recurring_invoices" position="after">
-                <group>
-                    <field name="billing_partner_id" context="{'show_address': 1}" options='{"always_reload": True}'/>
+                <group col="4">
+                    <field name="is_po_required"/>
+                    <field name="default_analytic_account_id"/>
+                    <field name="po_number"/>
+                    <field name="default_analytic_account_tag_id"/>
+                    <field name="old_contract_id" readonly="1"/>
+                    <field name="initial_sale_id" readonly="1"/>
                 </group>
                 <group col="6">
                     <field name="advance_number" attrs="{'invisible': [('contract_type', '=', 'purchase')]}"/>
                     <field name="min_bill_hours"/>
                     <field name="per_visit_amt_restriction"/>
-                </group>
-                <group col="4">
-                    <field name="is_po_required"/>
-                    <field name="po_number"/>
-                    <field name="default_analytic_account_id"/>
-                    <field name="default_analytic_account_tag_id"/>
-                    <field name="service_start_date"/>
-                    <field name="service_end_date"/>
-                    <field name="old_contract_id" readonly="1"/>
-                    <field name="initial_sale_id" readonly="1"/>
                 </group>
             </group>
             <xpath expr="//page[@name='recurring_invoice_line']/field[@name='note']" position="replace"/>
@@ -54,6 +65,27 @@
                     <field name="note"/>
                 </page>
             </page>
+            <xpath expr="//notebook/page[@name='recurring_invoice_line']/field[@name='contract_line_ids']/tree/button[@name='action_plan_successor']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//notebook/page[@name='recurring_invoice_line']/field[@name='contract_line_ids']/tree/button[@name='action_stop_plan_successor']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//notebook/page[@name='recurring_invoice_line']/field[@name='contract_line_ids']/tree/button[@name='action_stop']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//notebook/page[@name='recurring_invoice_line']/field[@name='contract_line_ids']/tree/button[@name='cancel']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//notebook/page[@name='recurring_invoice_line']/field[@name='contract_line_ids']/tree/button[@name='action_uncancel']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//notebook/page[@name='recurring_invoice_line']/field[@name='contract_line_ids']/tree/button[@name='renew']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_show_invoices']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
         </field>
     </record>
 

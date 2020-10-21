@@ -13,4 +13,26 @@ class SaleOrder(models.Model):
 
     @api.multi
     def create_contract(self):
+        for rec in self:
+            contract_obj = self.env['contract.contract']
+            contract_vals = {
+                'name': rec.origin,
+                'partner_id': rec.partner_id.id,
+                'contract_type': 'sale',
+                'type': 'sale',
+                'initial_sale_id': rec.id,
+            }
+            contract_line_list = []
+            for line in rec.order_line:
+                contract_line_list.append(
+                    (0, 0, {
+                        'product_id': line.product_id.id,
+                        'name': line.name,
+                        'quantity': line.product_uom_qty,
+                        'uom_id': line.product_uom.id,
+                        'price_unit': line.price_unit,
+                        'discount': line.discount,
+                    }))
+            contract_vals.update({'contract_line_ids': contract_line_list})
+            contract_obj.create(contract_vals)
         return True

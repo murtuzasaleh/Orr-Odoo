@@ -10,6 +10,6 @@ class RecurrenceRecurrence(models.Model):
     name = fields.Char(
         string="Recurrence Name",
     )
-    factor = fields.Char(
+    factor = fields.Integer(
         string="Factor",
     )

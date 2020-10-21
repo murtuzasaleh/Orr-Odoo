@@ -35,3 +35,6 @@ class ContractAbstractContract(models.AbstractModel):
         string='Type',
         default='sale',
     )
+    sale_autoconfirm = fields.Boolean(
+        string='Sale Autoconfirm',
+        default=True)
