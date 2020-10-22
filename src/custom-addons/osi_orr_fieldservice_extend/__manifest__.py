@@ -10,6 +10,7 @@
     'category': 'Field Service',
     'author': 'Open Source Integrators',
     'depends': [
+        'fieldservice_stock',
         'fieldservice_sale',
         'account_accountant',
         'fieldservice_sale_recurring',
@@ -22,6 +23,7 @@
         'views/fsm_person.xml',
         'views/fsm_recurring.xml',
         'views/fsm_branch.xml',
+        'views/fsm_menu.xml'
     ],
     'maintainers': [
         'smangukiya',

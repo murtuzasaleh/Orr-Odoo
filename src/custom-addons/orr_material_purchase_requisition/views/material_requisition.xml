@@ -1,0 +1,12 @@
+<odoo>
+    <record id="material_purchase_requisition_tree_view_with_customer" model="ir.ui.view">
+        <field name="name">Material Requistion to show customer</field>
+        <field name="model">material.purchase.requisition</field>
+        <field name="inherit_id" ref="material_purchase_requisitions.material_purchase_requisition_tree_view"/>
+        <field name="arch" type="xml">
+            <field name="state" position="before">
+                <field name = "partner_id" />
+            </field>
+        </field>
+    </record>
+</odoo>

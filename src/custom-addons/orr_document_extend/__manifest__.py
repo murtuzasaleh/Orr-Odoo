@@ -2,16 +2,14 @@
 # Copyright (C) 2019 Serpent Consulting Services Pvt. Ltd.
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
-    'name': 'ORR Sale',
+    'name': 'Orr Document Exend',
+    'description': 'To assign customer to view',
     'author': 'ORR Dev trg',
     'depends': [
-        'sale',
-        'contacts'
+     'base',
     ],
     'application': False,
     'installable': True,
-    'data': [
-        'views/res_partner.xml',
-        'views/product.xml',
-    ]
+    'data': [],
+
 }
