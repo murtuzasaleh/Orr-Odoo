@@ -29,7 +29,7 @@
             	<group col="4">
                     <field name="recurring_next_date" string="Next date"/>
                     <field name="last_date_invoiced" string="Last visit date"/>
-	                <field name="location_id"/>
+	                <field name="location_id" required="1"/>
 	                <field name="sale_rep_id"/>
 	                <field name="is_subcontracted"/>
 	                <field name="tm_flat_rate"/>

@@ -11,7 +11,7 @@
     'author': 'Open Source Integrators',
     'depends': [
         'contract_sale_generation',
-        'fieldservice',
+        'fieldservice_sale',
     ],
     'data': [
         'security/ir.model.access.csv',

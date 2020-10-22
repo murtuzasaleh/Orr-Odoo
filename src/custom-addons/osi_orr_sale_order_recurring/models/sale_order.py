@@ -36,3 +36,12 @@ class SaleOrder(models.Model):
             contract_vals.update({'contract_line_ids': contract_line_list})
             contract_obj.create(contract_vals)
         return True
+
+    @api.multi
+    def action_view_contract(self):
+        action = self.env.ref('contract.action_customer_contract').read()[0]
+        action['views'] = [(self.env.
+                            ref('contract.contract_contract_form_view').id,
+                            'form')]
+        action['res_id'] = self.contract_id.id
+        return action

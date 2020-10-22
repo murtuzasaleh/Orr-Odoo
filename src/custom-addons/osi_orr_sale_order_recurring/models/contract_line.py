@@ -50,7 +50,7 @@ class ContractLine(models.Model):
                      'recurrence_ids': freq_templ_rec.recurrence_ids,
                      'visit_type': freq_templ_rec.visit_type,
                      'contract_line_id': self.id,
-                     'first_service': self.contract_id.service_start_date,  # To do
+                     'first_service': self.contract_id.service_start_date,
                      }))
             if visit_setup_list:
                 self.so_frequency_line_ids = False
@@ -120,8 +120,18 @@ class ContractLine(models.Model):
         return True
 
     @api.multi
+    def unlink(self):
+        for record in self:
+            if not (record.is_canceled or record.display_type):
+                continue
+        return super(models.Model, self).unlink()
+
+    @api.multi
     def update_visits_pricing(self):
+        visit_obj = self.env['visit.visit']
         for rec in self:
-            # Todo
-            pass
-        return True
+            for v_setup_rec in rec.so_frequency_line_ids:
+                visit_rec = visit_obj.search(
+                    [('recurrence_id', '=', v_setup_rec.recurrence_id.id),
+                     ('sale_id', '=', False)])
+                visit_rec.write({'unit_price': v_setup_rec.unit_price})
