@@ -3,22 +3,18 @@
 # Part of Probuse Consulting Service Pvt Ltd. See LICENSE file for full copyright and licensing details.
 
 {
-    'name' : 'Budget for Job Contracting and Construction Projects',
-    'price' : 99.0,
-    'currency': 'EUR',
-        'version' : '1.2',
-
-    'depends' : [
-        'odoo_job_costing_management',
-        'odoo_account_budget',
-    ],
-    'author' : 'Probuse Consulting Service Pvt. Ltd.',
-    'website' : 'www.probuse.com',
-    'live_test_url': 'https://youtu.be/vrQdBfQ1yUQ',
-    'support': 'contact@probuse.com',
-    'category' : 'Projects',
-    'summary' : 'This app allow you to create and manage budgets based on analytic account/project for job contracting and construction.',
-    'description': """
+    "name": "Budget for Job Contracting and Construction Projects",
+    "price": 99.0,
+    "currency": "EUR",
+    "version": "1.2",
+    "depends": ["odoo_job_costing_management", "odoo_account_budget",],
+    "author": "Probuse Consulting Service Pvt. Ltd.",
+    "website": "www.probuse.com",
+    "live_test_url": "https://youtu.be/vrQdBfQ1yUQ",
+    "support": "contact@probuse.com",
+    "category": "Projects",
+    "summary": "This app allow you to create and manage budgets based on analytic account/project for job contracting and construction.",
+    "description": """
 job cost budget
 job costing budget
 construction budget
@@ -211,14 +207,14 @@ Construction odoo
 odoo Construction
 Cost sheet Budget
             """,
-    'data' : [
-        'views/budget_view.xml',
-        'views/cost_sheet_view.xml',
-        'views/cost_sheet_line_view.xml',
+    "data": [
+        "views/budget_view.xml",
+        "views/cost_sheet_view.xml",
+        "views/cost_sheet_line_view.xml",
     ],
-    'images': ['static/description/122.jpg'],
-    'installable' : True,
-    'application' : False,
+    "images": ["static/description/122.jpg"],
+    "installable": True,
+    "application": False,
 }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

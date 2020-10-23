@@ -3,38 +3,37 @@
 # Part of Probuse Consulting Service Pvt Ltd. See LICENSE file for full copyright and licensing details.
 
 {
-    'name': 'Payroll for Construction and Contracting Industry',
-    'version': '4.0',
-        'price': 99.00,
-
-    'category': 'Human Resources',
-    'summary': 'Construction Contracting Payroll. This module provide payroll to construction employee',
-    'license': 'Other proprietary',
-    'depends': [
-        'hr_payroll',
-        'odoo_mobile_timesheet',
-        'odoo_timesheet_sheet',
-        'sale_timesheet',
+    "name": "Payroll for Construction and Contracting Industry",
+    "version": "4.0",
+    "price": 99.00,
+    "category": "Human Resources",
+    "summary": "Construction Contracting Payroll. This module provide payroll to construction employee",
+    "license": "Other proprietary",
+    "depends": [
+        "hr_payroll",
+        "odoo_mobile_timesheet",
+        "odoo_timesheet_sheet",
+        "sale_timesheet",
     ],
-    'author': 'Probuse Consulting Service Pvt. Ltd.',
-    'website': 'https://www.probuse.com',
-    'images': ['static/description/img1.jpg'],
-     'support': 'contact@probuse.com',
-    'live_test_url': 'https://youtu.be/FsVQfYZXurY',
-    'data': [
-        'security/ir.model.access.csv',
-        'data/construction_payroll_data.xml',
-        'views/hr_contract_view.xml',
-        'views/hr_payslip_view.xml',
-        'views/account_analytic_line_view.xml',
-        'views/payslip_detail_report_template.xml',
-        'views/payslip_report_template.xml',
-        'views/hr_timesheet_sheet_view.xml',
-        'views/timesheet_report.xml',
+    "author": "Probuse Consulting Service Pvt. Ltd.",
+    "website": "https://www.probuse.com",
+    "images": ["static/description/img1.jpg"],
+    "support": "contact@probuse.com",
+    "live_test_url": "https://youtu.be/FsVQfYZXurY",
+    "data": [
+        "security/ir.model.access.csv",
+        "data/construction_payroll_data.xml",
+        "views/hr_contract_view.xml",
+        "views/hr_payslip_view.xml",
+        "views/account_analytic_line_view.xml",
+        "views/payslip_detail_report_template.xml",
+        "views/payslip_report_template.xml",
+        "views/hr_timesheet_sheet_view.xml",
+        "views/timesheet_report.xml",
     ],
-    'currency': 'EUR',
-    'version': '1.0',
-    'description': '''
+    "currency": "EUR",
+    "version": "1.0",
+    "description": """
 Construction Contracting Payroll
 construction payroll
 job contact payroll
@@ -364,10 +363,9 @@ construction
 Construction app
 Construction odoo
 
-''',
-    'installable': True,
-    'application': False,
-    
+""",
+    "installable": True,
+    "application": False,
 }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

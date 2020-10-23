@@ -3,18 +3,15 @@
 # Part of Probuse Consulting Service Pvt Ltd. See LICENSE file for full copyright and licensing details.
 
 {
-    'name': 'Dashboard for Project for Construction and Job Contracting',
-    'version': '1.0',
-    'depends': [
-        'odoo_job_costing_management',
-    ],
-        'category' : 'Projects',
-
-    'license': 'Other proprietary',
-    'price': 49.0,
-    'currency': 'EUR',
-    'summary': """This app will add dashboard on job costing and contracting on project.""",
-    'description': """
+    "name": "Dashboard for Project for Construction and Job Contracting",
+    "version": "1.0",
+    "depends": ["odoo_job_costing_management",],
+    "category": "Projects",
+    "license": "Other proprietary",
+    "price": 49.0,
+    "currency": "EUR",
+    "summary": """This app will add dashboard on job costing and contracting on project.""",
+    "description": """
 This module allow you to dashbord for project job costing (contracting).
 Dashboard
 job Dashboard
@@ -197,17 +194,14 @@ odoo Construction
 
 
 """,
-    'author': 'Probuse Consulting Service Pvt. Ltd.',
-    'website': 'http://www.probuse.com',
-    'support': 'contact@probuse.com',
-    'images': ['static/description/img1.jpg'],
-    'live_test_url': 'https://youtu.be/R1QBEJ-NjKU',
-    'data':[
-        'views/actions.xml',
-        'views/project_job_costing_dashboard_view.xml',
-    ],
-    'installable' : True,
-    'application' : False,
+    "author": "Probuse Consulting Service Pvt. Ltd.",
+    "website": "http://www.probuse.com",
+    "support": "contact@probuse.com",
+    "images": ["static/description/img1.jpg"],
+    "live_test_url": "https://youtu.be/R1QBEJ-NjKU",
+    "data": ["views/actions.xml", "views/project_job_costing_dashboard_view.xml",],
+    "installable": True,
+    "application": False,
 }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

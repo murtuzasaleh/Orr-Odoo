@@ -3,11 +3,13 @@
 
 from odoo import fields, models
 
+
 class ResCompany(models.Model):
-    _inherit = 'res.partner'
-    
+    _inherit = "res.partner"
+
     style = fields.Many2one(
-        'report.template.settings',
-        'Reports Style',
+        "report.template.settings",
+        "Reports Style",
         help="Select a style to use when printing reports for this customer",
-        default=False)
+        default=False,
+    )

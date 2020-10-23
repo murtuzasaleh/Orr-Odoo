@@ -3,12 +3,12 @@
 # Part of Probuse Consulting Service Pvt Ltd. See LICENSE file for full copyright and licensing details.
 
 {
-    'name': "Attachment/Document Extension with Directory and Numbering",
-    'price': 99.0,
-    'currency': 'EUR',
-    'license': 'Other proprietary',
-    'summary': """Attachment/Document Extension with Directory and Numbering""",
-    'description': """
+    "name": "Attachment/Document Extension with Directory and Numbering",
+    "price": 99.0,
+    "currency": "EUR",
+    "license": "Other proprietary",
+    "summary": """Attachment/Document Extension with Directory and Numbering""",
+    "description": """
 Document Extension
 Document Extension. This module add directory on ir.attachment model
 Attachment/Document Extension with Directory and Numbering
@@ -74,28 +74,25 @@ document folders
 attachment unique number
 reference unique number
     """,
-    'author': "Probuse Consulting Service Pvt. Ltd.",
-    'website': "http://www.probuse.com",
-    'support': 'contact@probuse.com',
-    'images': ['static/description/img1.jpeg'],
-    'live_test_url': 'https://youtu.be/FHTL19c-dsQ',
-    'version': '1.5',
-    'category' : 'Document Management',
-    'depends': [
-                'document',
-                'mail',
-                ],
-    'data':[
-        'security/document_security.xml',
-        'security/ir.model.access.csv',
-        'data/mail_attachment_data.xml',
-        'data/directory_sequence.xml',
-        'views/document.xml',
-        'views/attachment_directory.xml',
+    "author": "Probuse Consulting Service Pvt. Ltd.",
+    "website": "http://www.probuse.com",
+    "support": "contact@probuse.com",
+    "images": ["static/description/img1.jpeg"],
+    "live_test_url": "https://youtu.be/FHTL19c-dsQ",
+    "version": "1.5",
+    "category": "Document Management",
+    "depends": ["document", "mail",],
+    "data": [
+        "security/document_security.xml",
+        "security/ir.model.access.csv",
+        "data/mail_attachment_data.xml",
+        "data/directory_sequence.xml",
+        "views/document.xml",
+        "views/attachment_directory.xml",
     ],
-    'installable' : True,
-    'application' : False,
-    'auto_install' : False,
+    "installable": True,
+    "application": False,
+    "auto_install": False,
 }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

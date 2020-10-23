@@ -1,20 +1,17 @@
- # -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 
 # Part of Probuse Consulting Service Pvt Ltd. See LICENSE file for full copyright and licensing details.
 
 {
-    'name': 'Job Costing / Contracting Costing Report',
-    'price': 9.0,
-    'version': '1.1.1',
-    'depends': [
-        'job_costing_cost_actual',
-        'job_costing_volumn_trend',
-    ],
-    'category' : 'Project',
-    'license': 'Other proprietary',
-    'currency': 'EUR',
-    'summary': """Cost Trends analysis report for Job Costing and Contracting Sheets.""",
-    'description': """
+    "name": "Job Costing / Contracting Costing Report",
+    "price": 9.0,
+    "version": "1.1.1",
+    "depends": ["job_costing_cost_actual", "job_costing_volumn_trend",],
+    "category": "Project",
+    "license": "Other proprietary",
+    "currency": "EUR",
+    "summary": """Cost Trends analysis report for Job Costing and Contracting Sheets.""",
+    "description": """
     This module will help to make job costing cost trends Report,
         It will include all the purchase order, Timesheet, and Vendors Bill also. 
 
@@ -156,16 +153,14 @@ Construction app
 Construction odoo
 
     """,
-    'author': "Probuse Consulting Service Pvt. Ltd.",
-    'website': "http://www.probuse.com",
-    'support': 'contact@probuse.com',
-    'images': ['static/description/images.jpg'],
-    'live_test_url': 'https://youtu.be/AMPNe-f7g-E',
-    'installable' : True,
-    'application' : False,
-    'auto_install' : False,
-
+    "author": "Probuse Consulting Service Pvt. Ltd.",
+    "website": "http://www.probuse.com",
+    "support": "contact@probuse.com",
+    "images": ["static/description/images.jpg"],
+    "live_test_url": "https://youtu.be/AMPNe-f7g-E",
+    "installable": True,
+    "application": False,
+    "auto_install": False,
 }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
-

@@ -3,20 +3,15 @@
 # Part of Probuse Consulting Service Pvt Ltd. See LICENSE file for full copyright and licensing details.
 
 {
-    'name': "Construction and Contracting with Equipment & Maintenance",
-        'price': 1.0,
-
-    'depends': [
-               'asset_mro_maintenance_management',
-               'odoo_job_costing_management',
-                ],
-    'version': '1.1',
-
-    'category' : 'Projects',
-    'license': 'Other proprietary',
-    'currency': 'EUR',
-    'summary': """This module will add Odoo standard Maintenance and Equipment menus into Application. And link Maintenance with Job order and Projects.""",
-    'description': """
+    "name": "Construction and Contracting with Equipment & Maintenance",
+    "price": 1.0,
+    "depends": ["asset_mro_maintenance_management", "odoo_job_costing_management",],
+    "version": "1.1",
+    "category": "Projects",
+    "license": "Other proprietary",
+    "currency": "EUR",
+    "summary": """This module will add Odoo standard Maintenance and Equipment menus into Application. And link Maintenance with Job order and Projects.""",
+    "description": """
 Maintenance
 Maintenance Equipment
 Maintenance Checklist
@@ -239,18 +234,18 @@ Create Equipment Request
 
 
 """,
-    'author': "Probuse Consulting Service Pvt. Ltd.",
-    'website': "http://www.probuse.com",
-    'support': 'contact@probuse.com',
-    'images': ['static/description/img1.jpeg'],
-    'live_test_url': 'https://youtu.be/ulCLKpSqTUA',
-    'data':[
-          'views/menu_views.xml',
-          'views/project_view.xml',
-          'views/maintenance_request_view.xml',
+    "author": "Probuse Consulting Service Pvt. Ltd.",
+    "website": "http://www.probuse.com",
+    "support": "contact@probuse.com",
+    "images": ["static/description/img1.jpeg"],
+    "live_test_url": "https://youtu.be/ulCLKpSqTUA",
+    "data": [
+        "views/menu_views.xml",
+        "views/project_view.xml",
+        "views/maintenance_request_view.xml",
     ],
-    'installable' : True,
-    'application' : False,
+    "installable": True,
+    "application": False,
 }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

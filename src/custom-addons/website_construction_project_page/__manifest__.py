@@ -3,30 +3,27 @@
 # Part of Probuse Consulting Service Pvt Ltd. See LICENSE file for full copyright and licensing details.
 
 {
-    'name': 'Construction Projects on Website',
-    'version': '1.1',
-    'category' : 'Projects',
-    'license': 'Other proprietary',
-    'price': 80.0,
-    'currency': 'EUR',
-    'author': 'Probuse Consulting Service Pvt. Ltd.',
-    'website': 'http://www.probuse.com',
-    'support': 'contact@probuse.com',
-    'images': ['static/description/1222.jpg'],
-    'live_test_url': 'https://youtu.be/wp4stfpT-uM',
-    'depends': [
-                'project',
-                'website',
+    "name": "Construction Projects on Website",
+    "version": "1.1",
+    "category": "Projects",
+    "license": "Other proprietary",
+    "price": 80.0,
+    "currency": "EUR",
+    "author": "Probuse Consulting Service Pvt. Ltd.",
+    "website": "http://www.probuse.com",
+    "support": "contact@probuse.com",
+    "images": ["static/description/1222.jpg"],
+    "live_test_url": "https://youtu.be/wp4stfpT-uM",
+    "depends": ["project", "website",],
+    "data": [
+        "security/ir.model.access.csv",
+        "views/project_category_view.xml",
+        "views/project_view.xml",
+        "views/project_website_menu.xml",
+        "views/project_website_template.xml",
     ],
-    'data':[
-            'security/ir.model.access.csv',
-            'views/project_category_view.xml',
-            'views/project_view.xml',
-            'views/project_website_menu.xml',
-            'views/project_website_template.xml',
-    ],
-    'summary': """This app allow you to view your construction projects on your website under Project.""",
-    'description': """
+    "summary": """This app allow you to view your construction projects on your website under Project.""",
+    "description": """
 This module allow you to manage projects category wise from website
 Allow you to Create Project Category.<br>
 Allow you to Set Project Category on Projects.<br>
@@ -89,8 +86,8 @@ website construction
 website development
 
     """,
-    'installable' : True,
-    'application' : False,
+    "installable": True,
+    "application": False,
 }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

@@ -15,11 +15,16 @@ class StockPicking(models.Model):
             hold_value = False
 
             # Only outgoing picking
-            if record.picking_type_code == 'outgoing' and record.state not in ('done','cancel'):
+            if record.picking_type_code == "outgoing" and record.state not in (
+                "done",
+                "cancel",
+            ):
                 # Sales person has a hold
-                if record.sale_id.sales_hold or \
-                   record.sale_id.credit_hold or \
-                   record.sale_id.ship_hold:
+                if (
+                    record.sale_id.sales_hold
+                    or record.sale_id.credit_hold
+                    or record.sale_id.ship_hold
+                ):
                     hold_value = True
 
                 # Partner will exceed limit with current
@@ -32,21 +37,24 @@ class StockPicking(models.Model):
                     hold_value = False
 
                 record.dont_allow_transfer = hold_value
-                record.sale_id.write({'ship_hold':hold_value})
+                record.sale_id.write({"ship_hold": hold_value})
 
     dont_allow_transfer = fields.Boolean(
-        string='Credit Hold',
-        compute='_get_allow_transfer'
+        string="Credit Hold", compute="_get_allow_transfer"
     )
 
     @api.multi
     def button_validate(self):
         # Only outgoing picking
-        if self.picking_type_code == 'outgoing':
+        if self.picking_type_code == "outgoing":
             if self.dont_allow_transfer:
-                raise UserError(_("Customer has a Credit hold.\n\nContact\
+                raise UserError(
+                    _(
+                        "Customer has a Credit hold.\n\nContact\
                  Sales/Accounting to verify sales hold/credit hold/overdue\
-                  payments."))
+                  payments."
+                    )
+                )
             else:
                 return super(StockPicking, self).button_validate()
 

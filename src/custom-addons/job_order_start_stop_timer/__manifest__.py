@@ -4,29 +4,21 @@
 
 
 {
-    'name': 'Job / Work Order Start and Stop Timer and Digital Signature',
-    'price': 49.0,
-    'version': '1.1',
-    'depends': [
-        'project',
-        'odoo_job_costing_management',
-        'base_start_stop_timer',
-    ],
-    'currency': 'EUR',
-    'license': 'Other proprietary',
-    'author': "Probuse Consulting Service Pvt. Ltd.",
-    'website': "http://www.probuse.com",
-    'support': 'contact@probuse.com',
-    'images': ['static/description/img1.jpg'],
-    'live_test_url': 'https://youtu.be/FzFnF-fcofs',
-    'data': [
-        'views/joborder_portal_template.xml',
-        'views/project_task_view.xml',
-    ],
-    'category': 'Projects',
-    'summary': 'This app allow support technician to have start/stop/pause timer for job order form and allow him to take digital signature of customer',
-
-    'description': """
+    "name": "Job / Work Order Start and Stop Timer and Digital Signature",
+    "price": 49.0,
+    "version": "1.1",
+    "depends": ["project", "odoo_job_costing_management", "base_start_stop_timer",],
+    "currency": "EUR",
+    "license": "Other proprietary",
+    "author": "Probuse Consulting Service Pvt. Ltd.",
+    "website": "http://www.probuse.com",
+    "support": "contact@probuse.com",
+    "images": ["static/description/img1.jpg"],
+    "live_test_url": "https://youtu.be/FzFnF-fcofs",
+    "data": ["views/joborder_portal_template.xml", "views/project_task_view.xml",],
+    "category": "Projects",
+    "summary": "This app allow support technician to have start/stop/pause timer for job order form and allow him to take digital signature of customer",
+    "description": """
 Start and Stop Timer and Digital Signature
 odoo mobile
 mobile odoo
@@ -249,8 +241,8 @@ time recorder
 
     
     """,
-    'installable': True,
-    'auto_install': False,
+    "installable": True,
+    "auto_install": False,
 }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

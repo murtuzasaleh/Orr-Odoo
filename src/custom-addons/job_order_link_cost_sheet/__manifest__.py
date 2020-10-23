@@ -3,16 +3,15 @@
 # Part of Probuse Consulting Service Pvt Ltd. See LICENSE file for full copyright and licensing details.
 
 {
-    'name': 'Job Cost Sheet Integration with Material Planning of Job Order',
-        'price': 49.0,
-
-    'depends': ['odoo_job_costing_management'],
-    'version': '1.3',
-    'currency': 'EUR',
-    'license': 'Other proprietary',
-    'category': 'Projects',
-    'summary': 'This modules allow you to Create / edit Job Cost Sheet from Material Plannings from Job Order.',
-    'description': """
+    "name": "Job Cost Sheet Integration with Material Planning of Job Order",
+    "price": 49.0,
+    "depends": ["odoo_job_costing_management"],
+    "version": "1.3",
+    "currency": "EUR",
+    "license": "Other proprietary",
+    "category": "Projects",
+    "summary": "This modules allow you to Create / edit Job Cost Sheet from Material Plannings from Job Order.",
+    "description": """
 job cost sheet
 Odoo Job Costing And Job Cost Sheet (Contracting)
 Odoo job cost sheet
@@ -182,16 +181,16 @@ Construction odoo
 odoo Construction
 
             """,
-    'author': 'Probuse Consulting Service Pvt. Ltd.',
-    'website': 'www.probuse.com',
-    'images': ['static/description/img1.jpg'],
-    'live_test_url' : 'https://youtu.be/JA3I1onYcZ0',
-    'data': [
-             'wizard/job_costsheet_createupdate_view.xml',
-             'views/project_task_view.xml',
-             ],
-    'installable': True,
-    'application': False,
+    "author": "Probuse Consulting Service Pvt. Ltd.",
+    "website": "www.probuse.com",
+    "images": ["static/description/img1.jpg"],
+    "live_test_url": "https://youtu.be/JA3I1onYcZ0",
+    "data": [
+        "wizard/job_costsheet_createupdate_view.xml",
+        "views/project_task_view.xml",
+    ],
+    "installable": True,
+    "application": False,
 }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

@@ -8,6 +8,5 @@ class AccountJournal(models.Model):
     _inherit = "account.journal"
 
     reverse_for_void = fields.Boolean(
-        string="Enable Payment Voiding Entries",
-        default=False,
+        string="Enable Payment Voiding Entries", default=False,
     )

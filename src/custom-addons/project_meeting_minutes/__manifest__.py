@@ -3,20 +3,15 @@
 # Part of Probuse Consulting Service Pvt Ltd. See LICENSE file for full copyright and licensing details.
 
 {
-    'name': 'Meeting Minutes for Construction and Contracating Projects',
-    'currency': 'EUR',
-        'price': 10.0,
-            'version': '1.1',
-
-
-    'depends': [
-        'print_meeting_minutes',
-        'odoo_job_costing_management',
-    ],
-    'license': 'Other proprietary',
-    'category': 'Projects',
-    'summary': 'Project Meeting Minutes for Construction and Contracating Projects and Jobs',
-    'description': """
+    "name": "Meeting Minutes for Construction and Contracating Projects",
+    "currency": "EUR",
+    "price": 10.0,
+    "version": "1.1",
+    "depends": ["print_meeting_minutes", "odoo_job_costing_management",],
+    "license": "Other proprietary",
+    "category": "Projects",
+    "summary": "Project Meeting Minutes for Construction and Contracating Projects and Jobs",
+    "description": """
   Project Meeting Minutes
   
  This module allow print project meeting minutes.
@@ -214,21 +209,20 @@ Construction odoo
 odoo Construction
 
     """,
-    'images': ['static/description/image.jpg'],
-    'author': "Probuse Consulting Service Pvt. Ltd.",
-    'website': "http://www.probuse.com",
-    'support': 'contact@probuse.com',
-    'live_test_url': 'https://youtu.be/Vd4VM-QkMp4',
-
-    'data': [
-        'views/calendar_event_view.xml',
-        'views/jobcost_view.xml',
-        'views/project_view.xml',
-        'views/task_view.xml',
-        'report/jobcost_meeting_report.xml',
+    "images": ["static/description/image.jpg"],
+    "author": "Probuse Consulting Service Pvt. Ltd.",
+    "website": "http://www.probuse.com",
+    "support": "contact@probuse.com",
+    "live_test_url": "https://youtu.be/Vd4VM-QkMp4",
+    "data": [
+        "views/calendar_event_view.xml",
+        "views/jobcost_view.xml",
+        "views/project_view.xml",
+        "views/task_view.xml",
+        "report/jobcost_meeting_report.xml",
     ],
-    'installable': True,
-    'auto_install': False,
+    "installable": True,
+    "auto_install": False,
 }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

@@ -2,18 +2,21 @@
 
 # Part of Probuse Consulting Service Pvt Ltd. See LICENSE file for full copyright and licensing details.
 {
-    'name': 'Document Management System - Customer Portal',
-        'price': 99.0,
-
-    'depends': ['document_directory_extension', 'document_directory_extension_security', 'website'],
-    'category': 'Document Management',
-    'summary': 'This app allow your customer to download documents which have been shared with them.',
-    'author': 'Probuse Consulting Service Pvt. Ltd.',
-    'website': 'https://www.probuse.com',
-    'currency': 'EUR',
-    'license': 'Other proprietary',
-    'version': '1.3',
-    'description': """
+    "name": "Document Management System - Customer Portal",
+    "price": 99.0,
+    "depends": [
+        "document_directory_extension",
+        "document_directory_extension_security",
+        "website",
+    ],
+    "category": "Document Management",
+    "summary": "This app allow your customer to download documents which have been shared with them.",
+    "author": "Probuse Consulting Service Pvt. Ltd.",
+    "website": "https://www.probuse.com",
+    "currency": "EUR",
+    "license": "Other proprietary",
+    "version": "1.3",
+    "description": """
 This module will add features to protal user download a document/attachment in website throw.
 
 Document Extension
@@ -101,18 +104,18 @@ customer document share
 customer attachment share
 website portal share document
 """,
-    'author': "Probuse Consulting Service Pvt. Ltd.",
-    'website': "http://www.probuse.com",
-    'support': 'contact@probuse.com',
-    'images': ['static/description/img1.jpg'],
-    'live_test_url': 'https://youtu.be/724k9z6BbGc',
-    'data': [
-        'data/data.xml',
-        'views/my_document_portal_templates.xml',
-        'views/attachment_directory.xml',
+    "author": "Probuse Consulting Service Pvt. Ltd.",
+    "website": "http://www.probuse.com",
+    "support": "contact@probuse.com",
+    "images": ["static/description/img1.jpg"],
+    "live_test_url": "https://youtu.be/724k9z6BbGc",
+    "data": [
+        "data/data.xml",
+        "views/my_document_portal_templates.xml",
+        "views/attachment_directory.xml",
     ],
-    'installable': True,
-    'auto_install': False,
+    "installable": True,
+    "auto_install": False,
 }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

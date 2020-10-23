@@ -16,7 +16,6 @@
         "reports/purchase_report_templates.xml",
         "reports/fsm_report_data.xml",
         "reports/account_report_data.xml",
-        
         "views/fsm_order_views.xml",
         "views/report_style_views.xml",
         "views/res_company_views.xml",

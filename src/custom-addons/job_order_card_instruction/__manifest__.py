@@ -3,20 +3,19 @@
 # Part of Probuse Consulting Service Pvt Ltd. See LICENSE file for full copyright and licensing details.
 
 {
-    'name': 'Instruction and Quality Checklist on Job Order',
-        'price': 25.0,
-
-    'version': '1.0',
-    'depends': ['odoo_job_costing_management'],
-    'currency': 'EUR',
-    'license': 'Other proprietary',
-    'category': 'Projects',
-    'author': 'Probuse Consulting Service Pvt. Ltd.',
-    'website': 'www.probuse.com',
-    'images': ['static/description/image1.jpg'],
-    'live_test_url' : 'https://youtu.be/PdWoY2u3vYo',
-    'summary': 'This app allow you to create instruction and quality checklist for job order.',
-    'description': """
+    "name": "Instruction and Quality Checklist on Job Order",
+    "price": 25.0,
+    "version": "1.0",
+    "depends": ["odoo_job_costing_management"],
+    "currency": "EUR",
+    "license": "Other proprietary",
+    "category": "Projects",
+    "author": "Probuse Consulting Service Pvt. Ltd.",
+    "website": "www.probuse.com",
+    "images": ["static/description/image1.jpg"],
+    "live_test_url": "https://youtu.be/PdWoY2u3vYo",
+    "summary": "This app allow you to create instruction and quality checklist for job order.",
+    "description": """
 Job order card instruction
 job card
 job order instruction
@@ -221,17 +220,17 @@ Construction odoo
 odoo Construction
 Create Project/Contract -> Create Job Orders -> Create Multiple Job Cost Sheets under Same Project -> Plan your materials, labour and overhead for each Jobs -> View of Planned and Actual Amount/Qty by each Cost Sheet Lines (Material, Labour and Overheads) -> Allow your purchase, accounting and HR department to select cost center (cost sheet) and cost center line (cost sheet line) to encode for expenses and labour works. -> Create Job Order Issues -> Create Material Requision Request -> Prepare Notes/ToDo lists for Projects and Jobs. ->
             """,
-    'data': [
-        'security/ir.model.access.csv',
-        'data/job_instruction_sequence.xml',
-        'views/instruction_type_view.xml',
-        'views/quality_checklist_view.xml',
-        'views/project_task_view.xml',
-        'views/job_instructions_view.xml',
-        'report/job_instruction_report.xml',
-             ],
-    'installable': True,
-    'application': False,
+    "data": [
+        "security/ir.model.access.csv",
+        "data/job_instruction_sequence.xml",
+        "views/instruction_type_view.xml",
+        "views/quality_checklist_view.xml",
+        "views/project_task_view.xml",
+        "views/job_instructions_view.xml",
+        "report/job_instruction_report.xml",
+    ],
+    "installable": True,
+    "application": False,
 }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

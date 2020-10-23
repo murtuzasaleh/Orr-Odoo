@@ -5,13 +5,10 @@ from odoo import models, fields, api
 
 
 class ConsumptionType(models.Model):
-     
-     _name = 'consumption.type'
 
-     name = fields.Char(
-        string='Name',
-        required=True,
-    )
-    
+    _name = "consumption.type"
+
+    name = fields.Char(string="Name", required=True,)
+
+
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
-     

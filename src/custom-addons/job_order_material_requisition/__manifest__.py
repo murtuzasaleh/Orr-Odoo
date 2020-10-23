@@ -3,18 +3,15 @@
 # Part of Probuse Consulting Service Pvt Ltd. See LICENSE file for full copyright and licensing details.
 
 {
-    'name': 'Job Order - Material Planning Integration with Material Requisition',
-    'version': '1.1.3',
-    'price': 19.0,
-    'depends': [
-        'material_purchase_requisitions',
-        'odoo_job_costing_management',
-            ],
-    'category' : 'Projects',
-    'license': 'Other proprietary',
-    'currency': 'EUR',
-    'summary': """This app allow your project users to create Material Requisition from job order.""",
-    'description': """
+    "name": "Job Order - Material Planning Integration with Material Requisition",
+    "version": "1.1.3",
+    "price": 19.0,
+    "depends": ["material_purchase_requisitions", "odoo_job_costing_management",],
+    "category": "Projects",
+    "license": "Other proprietary",
+    "currency": "EUR",
+    "summary": """This app allow your project users to create Material Requisition from job order.""",
+    "description": """
 job order
 work order
 Material Requisition
@@ -31,19 +28,15 @@ job Material Planning
 
 
 """,
-    'author': 'Probuse Consulting Service Pvt. Ltd.',
-    'website': 'http://www.probuse.com',
-    'support': 'contact@probuse.com',
-    'images': ['static/description/img.jpg'],
-    'live_test_url': 'https://youtu.be/-mOkZg5kFEQ',
-    'data':[
-            'wizard/material_requisition.xml',
-            'views/project_task.xml',
-    ],
-    'installable' : True,
-    'application' : False,
-    'auto_install' : False,
+    "author": "Probuse Consulting Service Pvt. Ltd.",
+    "website": "http://www.probuse.com",
+    "support": "contact@probuse.com",
+    "images": ["static/description/img.jpg"],
+    "live_test_url": "https://youtu.be/-mOkZg5kFEQ",
+    "data": ["wizard/material_requisition.xml", "views/project_task.xml",],
+    "installable": True,
+    "application": False,
+    "auto_install": False,
 }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
-

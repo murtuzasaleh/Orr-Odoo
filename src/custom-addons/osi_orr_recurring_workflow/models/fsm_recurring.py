@@ -9,22 +9,24 @@ from odoo import fields, models, api, _
 
 
 class FSMRecurringOrder(models.Model):
-    _inherit = 'fsm.recurring'
+    _inherit = "fsm.recurring"
 
     def _get_default_agreement(self):
         if self.sale_line_id:
             self.agreement_id = self.sale_line_id.order_id.agreement_id
 
-    fsm_equipment_id = fields.Many2one('fsm.equipment', 'Equipment')
-    agreement_id = fields.Many2one('agreement', 'Agreement', default=lambda self: self._get_default_agreement())
-    serviceprofile_id = fields.Many2one('agreement.serviceprofile', 'Serviceprofile')
-    project_id = fields.Many2one('project.project', string='Project')
-    task_id = fields.Many2one('project.task', string="Task")
+    fsm_equipment_id = fields.Many2one("fsm.equipment", "Equipment")
+    agreement_id = fields.Many2one(
+        "agreement", "Agreement", default=lambda self: self._get_default_agreement()
+    )
+    serviceprofile_id = fields.Many2one("agreement.serviceprofile", "Serviceprofile")
+    project_id = fields.Many2one("project.project", string="Project")
+    task_id = fields.Many2one("project.task", string="Task")
 
     def _prepare_order_values(self, date=None):
         res = super()._prepare_order_values(date)
         if self.fsm_equipment_id:
-            res['fsm_equipment_id'] = self.fsm_equipment_id.id
+            res["fsm_equipment_id"] = self.fsm_equipment_id.id
         if self.sale_line_id:
-            res['sale_order_line_ids'] = [(6, 0, [self.sale_line_id.id])]
+            res["sale_order_line_ids"] = [(6, 0, [self.sale_line_id.id])]
         return res

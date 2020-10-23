@@ -3,18 +3,15 @@
 # Part of Probuse Consulting Service Pvt Ltd. See LICENSE file for full copyright and licensing details.
 
 {
-    'name': 'Document Version / Attachment Version',
-    'price': 99.0,
-    'version': '1.3',
-    'depends': [
-        'document',
-        'mail'
-    ],
-    'category' : 'Document Management',
-    'license': 'Other proprietary',
-    'currency': 'EUR',
-    'summary': """This app allow you to have document version on attachment records.""",
-    'description': """
+    "name": "Document Version / Attachment Version",
+    "price": 99.0,
+    "version": "1.3",
+    "depends": ["document", "mail"],
+    "category": "Document Management",
+    "license": "Other proprietary",
+    "currency": "EUR",
+    "summary": """This app allow you to have document version on attachment records.""",
+    "description": """
 This module will add below feature:
 document versioning
 versioning
@@ -80,18 +77,18 @@ Document Attachment
 
 
     """,
-    'author': 'Probuse Consulting Service Pvt. Ltd.',
-    'website': 'http://www.probuse.com',
-    'support': 'contact@probuse.com',
-    'images': ['static/description/img1.png'],
-    'live_test_url': 'https://youtu.be/Jpnja0KNcqw',
-    'data':[
-        'security/ir.model.access.csv',
-        'views/ir_attachement_view.xml',
-        'views/res_model_versioning_view.xml',
+    "author": "Probuse Consulting Service Pvt. Ltd.",
+    "website": "http://www.probuse.com",
+    "support": "contact@probuse.com",
+    "images": ["static/description/img1.png"],
+    "live_test_url": "https://youtu.be/Jpnja0KNcqw",
+    "data": [
+        "security/ir.model.access.csv",
+        "views/ir_attachement_view.xml",
+        "views/res_model_versioning_view.xml",
     ],
-    'installable' : True,
-    'application' : False,
+    "installable": True,
+    "application": False,
 }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

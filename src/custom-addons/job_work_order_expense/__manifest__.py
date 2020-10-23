@@ -3,29 +3,25 @@
 # Part of Probuse Consulting Service Pvt Ltd. See LICENSE file for full copyright and licensing details.
 
 {
-    'name': 'Expense Integration Job Orders for Project',
-    'version': '1.0',
-    'price': 9.0,
-    'currency': 'EUR',
-    'license': 'Other proprietary',
-    
-    'depends': [
-                'hr_expense',
-                'odoo_job_costing_management',
+    "name": "Expense Integration Job Orders for Project",
+    "version": "1.0",
+    "price": 9.0,
+    "currency": "EUR",
+    "license": "Other proprietary",
+    "depends": ["hr_expense", "odoo_job_costing_management",],
+    "author": "Probuse Consulting Service Pvt. Ltd.",
+    "website": "http://www.probuse.com",
+    "support": "contact@probuse.com",
+    "images": ["static/description/img1.jpeg"],
+    "live_test_url": "https://youtu.be/kuebWWHaQ-o",
+    "data": [
+        "views/hr_expense_view.xml",
+        "views/expense_sheet_view.xml",
+        "views/project_view.xml",
+        "views/task_view.xml",
     ],
-    'author': 'Probuse Consulting Service Pvt. Ltd.',
-    'website': 'http://www.probuse.com',
-    'support': 'contact@probuse.com',
-    'images': ['static/description/img1.jpeg'],
-    'live_test_url': 'https://youtu.be/kuebWWHaQ-o',
-    'data':[
-            'views/hr_expense_view.xml',
-            'views/expense_sheet_view.xml',
-            'views/project_view.xml',
-            'views/task_view.xml',
-    ],
-    'summary': """This app allow your employee to submit expense for job orders they are working.""",
-    'description': """
+    "summary": """This app allow your employee to submit expense for job orders they are working.""",
+    "description": """
 This module allow you to manage any type of project with its with expenses
 
   This module will help to make job costing,
@@ -214,8 +210,8 @@ contracting expense
 job contract expense
 
     """,
-    'installable' : True,
-    'application' : False,
+    "installable": True,
+    "application": False,
 }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

@@ -3,19 +3,15 @@
 # Part of Probuse Consulting Service Pvt Ltd. See LICENSE file for full copyright and licensing details.
 
 {
-    'name': 'Project Team for Constrcution and Contracting',
-        'price': 19.0,
-
-    'version': '1.1',
-    'depends': [
-            'odoo_job_costing_management',
-    ],
-    'category' : 'Projects',
-
-    'license': 'Other proprietary',
-    'currency': 'EUR',
-    'summary': """This app allow you to set project team on Project, Job order and Job Cost Sheet.""",
-    'description': """
+    "name": "Project Team for Constrcution and Contracting",
+    "price": 19.0,
+    "version": "1.1",
+    "depends": ["odoo_job_costing_management",],
+    "category": "Projects",
+    "license": "Other proprietary",
+    "currency": "EUR",
+    "summary": """This app allow you to set project team on Project, Job order and Job Cost Sheet.""",
+    "description": """
 Project Teams
 Project Team on Project
 Project Team on Job Order
@@ -159,23 +155,22 @@ Construction Management
 
 
     """,
-    'author': 'Probuse Consulting Service Pvt. Ltd.',
-    'website': 'http://www.probuse.com',
-    'support': 'contact@probuse.com',
-    'images': ['static/description/img1.jpeg'],
-    'live_test_url': 'https://youtu.be/IGQ5NLQL5F8',
-
-    'data':[
-        'security/ir.model.access.csv',
-        'views/project_team_view.xml',
-        'views/costsheet_tag_view.xml',
-        'views/project_view.xml',
-        'views/job_costsheet_view.xml',
-        'views/job_costing_report.xml',
-        'views/task_report.xml',
+    "author": "Probuse Consulting Service Pvt. Ltd.",
+    "website": "http://www.probuse.com",
+    "support": "contact@probuse.com",
+    "images": ["static/description/img1.jpeg"],
+    "live_test_url": "https://youtu.be/IGQ5NLQL5F8",
+    "data": [
+        "security/ir.model.access.csv",
+        "views/project_team_view.xml",
+        "views/costsheet_tag_view.xml",
+        "views/project_view.xml",
+        "views/job_costsheet_view.xml",
+        "views/job_costing_report.xml",
+        "views/task_report.xml",
     ],
-    'installable' : True,
-    'application' : False,
+    "installable": True,
+    "application": False,
 }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

@@ -2,34 +2,29 @@
 
 # Part of Probuse Consulting Service Pvt Ltd. See LICENSE file for full copyright and licensing details.
 {
-    'name': 'Subcontracting in Job Order / Construction / Contracting Industry',
-    'version': '1.1.5',
-    'currency': 'EUR',
-        'price': 49.00,
-
-    'license': 'Other proprietary',
-    'author': 'Probuse Consulting Service Pvt. Ltd.',
-    'website': 'https://www.probuse.com',
-    'depends': [
-                'portal',
-                'website',
-                'odoo_job_costing_management',
-                ],
-    'support': 'contact@probuse.com',
-    'images': ['static/description/img1.jpeg'],
-    'live_test_url': ' https://youtu.be/yMq7i_j3Zsw',
-    'category' : 'Projects',
-    'data': [
-        'security/ir.model.access.csv',
-        'wizard/sub_contractor_wizard.xml',
-        'wizard/purchase_order_wizard.xml',
-        'views/project_task_view.xml',
-        'views/purchase_order_view.xml',
-        'views/subcontractor_joborder_template.xml',
-        'data/subcontractor_mail_template.xml',
+    "name": "Subcontracting in Job Order / Construction / Contracting Industry",
+    "version": "1.1.5",
+    "currency": "EUR",
+    "price": 49.00,
+    "license": "Other proprietary",
+    "author": "Probuse Consulting Service Pvt. Ltd.",
+    "website": "https://www.probuse.com",
+    "depends": ["portal", "website", "odoo_job_costing_management",],
+    "support": "contact@probuse.com",
+    "images": ["static/description/img1.jpeg"],
+    "live_test_url": " https://youtu.be/yMq7i_j3Zsw",
+    "category": "Projects",
+    "data": [
+        "security/ir.model.access.csv",
+        "wizard/sub_contractor_wizard.xml",
+        "wizard/purchase_order_wizard.xml",
+        "views/project_task_view.xml",
+        "views/purchase_order_view.xml",
+        "views/subcontractor_joborder_template.xml",
+        "data/subcontractor_mail_template.xml",
     ],
-    'summary': 'This app allow you to create subcontractor job order in system and allow subcontractor to view jobs in portal.',
-    'description': """Job order Subcontracting.
+    "summary": "This app allow you to create subcontractor job order in system and allow subcontractor to view jobs in portal.",
+    "description": """Job order Subcontracting.
 This module allow create sub contractor and its purchase order
 Subcontracting Job Orders
 Subcontracting Details,
@@ -221,8 +216,8 @@ Create Project/Contract -> Create Job Orders -> Create Multiple Job Cost Sheets 
 
     
     """,
-    'installable': True,
-    'auto_install': False,
+    "installable": True,
+    "auto_install": False,
 }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

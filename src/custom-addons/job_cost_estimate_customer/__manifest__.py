@@ -3,18 +3,14 @@
 # Part of Probuse Consulting Service Pvt Ltd. See LICENSE file for full copyright and licensing details.
 
 {
-    'name': "Estimation for Jobs - Material / Labour / Overheads",
-    'version': '1.8',
-    'price': 79.0,
-    'depends': [
-                'sale',
-                'project',
-                'hr_timesheet',
-                ],
-    'currency': 'EUR',
-    'license': 'Other proprietary',
-    'summary': """Send Estimation to your Customers for materials, labour, overheads details in job estimation.""",
-    'description': """
+    "name": "Estimation for Jobs - Material / Labour / Overheads",
+    "version": "1.8",
+    "price": 79.0,
+    "depends": ["sale", "project", "hr_timesheet",],
+    "currency": "EUR",
+    "license": "Other proprietary",
+    "summary": """Send Estimation to your Customers for materials, labour, overheads details in job estimation.""",
+    "description": """
 Odoo Sale Estimates
 This module create and send job estimate to customer and create quotation
 create and send job estimate to customer
@@ -208,24 +204,24 @@ Job Cost Estimate Customer
 sales estimates
     
     """,
-    'category' : 'Sales',
-    'author': "Probuse Consulting Service Pvt. Ltd.",
-    'website': "http://www.probuse.com",
-    'support': 'contact@probuse.com',
-    'images': ['static/description/img1.png'],
-#     'live_test_url': 'https://youtu.be/wbOW80hqyPk',
-    'live_test_url': 'https://youtu.be/jELx4pVXl1o',
-    'data':[
-        'security/ir.model.access.csv',
-        'security/estimate_security.xml',
-        'report/estimate_report.xml',
-        'data/estimate_sequence.xml',
-        'data/estimate_mail.xml',
-        'views/sale_estimate_views.xml',
-        'views/job_type.xml',
+    "category": "Sales",
+    "author": "Probuse Consulting Service Pvt. Ltd.",
+    "website": "http://www.probuse.com",
+    "support": "contact@probuse.com",
+    "images": ["static/description/img1.png"],
+    #     'live_test_url': 'https://youtu.be/wbOW80hqyPk',
+    "live_test_url": "https://youtu.be/jELx4pVXl1o",
+    "data": [
+        "security/ir.model.access.csv",
+        "security/estimate_security.xml",
+        "report/estimate_report.xml",
+        "data/estimate_sequence.xml",
+        "data/estimate_mail.xml",
+        "views/sale_estimate_views.xml",
+        "views/job_type.xml",
     ],
-    'installable' : True,
-    'application' : False,
+    "installable": True,
+    "application": False,
 }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

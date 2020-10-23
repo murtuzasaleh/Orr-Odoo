@@ -4,18 +4,13 @@ from odoo import models, fields
 
 
 class EquipmentChecklist(models.Model):
-    _name = 'equipment.checklist'
+    _name = "equipment.checklist"
 
     maintenance_equipment_id = fields.Many2one(
-        'maintenance.equipment',
-        string='Maintenance Equipment',
+        "maintenance.equipment", string="Maintenance Equipment",
     )
-    name = fields.Char(
-        string='Checklist Name',
-        required=True,
-    )
-    note = fields.Char(
-        string='Description',
-    )
+    name = fields.Char(string="Checklist Name", required=True,)
+    note = fields.Char(string="Description",)
+
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

@@ -8,13 +8,8 @@ from odoo.exceptions import UserError
 class AccountPayment(models.Model):
     _inherit = "account.payment"
 
-    restrict_for_void = fields.Boolean(
-        string="Payment Voided",
-        default=False,
-    )
-    reason = fields.Text(
-        string="Void Reason",
-    )
+    restrict_for_void = fields.Boolean(string="Payment Voided", default=False,)
+    reason = fields.Text(string="Void Reason",)
 
     @api.multi
     def cancel(self):

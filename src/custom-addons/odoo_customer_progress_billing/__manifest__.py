@@ -3,13 +3,13 @@
 # Part of Probuse Consulting Service Pvt Ltd. See LICENSE file for full copyright and licensing details.
 
 {
-    'name': 'Progress Billing to Customer',
-    'version': '1.1',
-    'price': 49.0,
-    'currency': 'EUR',
-    'license': 'Other proprietary',
-    'summary': """Module allow you to create and print progress billing.""",
-    'description': """
+    "name": "Progress Billing to Customer",
+    "version": "1.1",
+    "price": 49.0,
+    "currency": "EUR",
+    "license": "Other proprietary",
+    "summary": """Module allow you to create and print progress billing.""",
+    "description": """
    Odoo Customer Progress Billing
 provide progress billing information on invoice
 progress bill for invoice
@@ -203,22 +203,20 @@ Construction odoo
 odoo Construction
 
     """,
-    'author': 'Probuse Consulting Service Pvt. Ltd.',
-    'website': 'http://www.probuse.com',
-    'support': 'contact@probuse.com',
-    'images': ['static/description/img1.jpeg'],
-    'live_test_url' : 'https://youtu.be/OnSKwJeub-0',
-    'category': 'Accounting',
-    'depends': [
-                'account',
-                ],
-    'data':[
-        'views/account_invoice_view.xml',
-        'views/account_analytic_view.xml',
-        'report/progress_bill_report.xml',
+    "author": "Probuse Consulting Service Pvt. Ltd.",
+    "website": "http://www.probuse.com",
+    "support": "contact@probuse.com",
+    "images": ["static/description/img1.jpeg"],
+    "live_test_url": "https://youtu.be/OnSKwJeub-0",
+    "category": "Accounting",
+    "depends": ["account",],
+    "data": [
+        "views/account_invoice_view.xml",
+        "views/account_analytic_view.xml",
+        "report/progress_bill_report.xml",
     ],
-    'installable' : True,
-    'application' : False,
+    "installable": True,
+    "application": False,
 }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

@@ -3,19 +3,15 @@
 # Part of Probuse Consulting Service Pvt Ltd. See LICENSE file for full copyright and licensing details.
 
 {
-    'name': 'Transmittals / Submittals for Construction and Contracting',
-    'depends': [
-               'odoo_job_costing_management'
-                ],
-    'category' : 'Projects',
-        'version': '1.1.1',
-
-
-    'license': 'Other proprietary',
-    'price': 19.0,
-    'currency': 'EUR',
-    'summary': """Submittals and Transmittals documents for Construction and Job Contracting.""",
-    'description': """
+    "name": "Transmittals / Submittals for Construction and Contracting",
+    "depends": ["odoo_job_costing_management"],
+    "category": "Projects",
+    "version": "1.1.1",
+    "license": "Other proprietary",
+    "price": 19.0,
+    "currency": "EUR",
+    "summary": """Submittals and Transmittals documents for Construction and Job Contracting.""",
+    "description": """
 Transmittal Documents
 Submittal Documents
 Transmittal PDF Report
@@ -209,24 +205,24 @@ odoo Construction
     
     
 """,
-    'author': "Probuse Consulting Service Pvt. Ltd.",
-    'website': "http://www.probuse.com",
-    'support': 'contact@probuse.com',
-    'images': ['static/description/img2.jpg'],
-    'live_test_url': 'https://youtu.be/HhSz9T6-Znk',
-    'data':[
-            'security/ir.model.access.csv',
-            'security/transmittal_security.xml',
-            'datas/transmittal_submittal_data.xml',
-            'views/report_transmittal_view.xml',
-            'datas/transmittal_sequence.xml',
-            'datas/mail_template_data.xml',
-            'views/transmittal_type_view.xml',
-            'views/transmittal_view.xml',
-            'views/project_view.xml',
+    "author": "Probuse Consulting Service Pvt. Ltd.",
+    "website": "http://www.probuse.com",
+    "support": "contact@probuse.com",
+    "images": ["static/description/img2.jpg"],
+    "live_test_url": "https://youtu.be/HhSz9T6-Znk",
+    "data": [
+        "security/ir.model.access.csv",
+        "security/transmittal_security.xml",
+        "datas/transmittal_submittal_data.xml",
+        "views/report_transmittal_view.xml",
+        "datas/transmittal_sequence.xml",
+        "datas/mail_template_data.xml",
+        "views/transmittal_type_view.xml",
+        "views/transmittal_view.xml",
+        "views/project_view.xml",
     ],
-    'installable' : True,
-    'application' : False,
+    "installable": True,
+    "application": False,
 }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

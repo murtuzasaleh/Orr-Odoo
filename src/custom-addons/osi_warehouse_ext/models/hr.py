@@ -7,6 +7,5 @@ class HrExpense(models.Model):
     _inherit = "hr.expense"
 
     analytic_segment_one_id = fields.Many2one(
-        'analytic.segment.one',
-        string='Job Type',
-        copy=False)
+        "analytic.segment.one", string="Job Type", copy=False
+    )

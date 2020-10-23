@@ -11,6 +11,7 @@ from . import note
 from . import product
 from . import project_job_cost
 from . import purchase
+
 # from . import stock_picking
 from . import task
 from . import purchase_requistion

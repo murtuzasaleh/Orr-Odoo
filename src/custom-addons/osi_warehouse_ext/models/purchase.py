@@ -4,9 +4,8 @@ from odoo import models, fields, _
 
 
 class PurchaseOrderLine(models.Model):
-    _inherit = 'purchase.order.line'
+    _inherit = "purchase.order.line"
 
     analytic_segment_one_id = fields.Many2one(
-        'analytic.segment.one',
-        string='Job Type',
-        copy=False)
+        "analytic.segment.one", string="Job Type", copy=False
+    )

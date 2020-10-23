@@ -1,10 +1,10 @@
 # # -*- coding: utf-8 -*-
-# 
+#
 # from odoo import models, fields, api
-# 
+#
 # class StockPicking(models.Model):
 #     _inherit = 'stock.picking'
-#     
+#
 #     @api.multi
 #     @api.onchange('task_id',
 #                   'project_id',
@@ -13,7 +13,7 @@
 #         for rec in self:
 #             rec.project_id = rec.task_id.project_id.id
 #             rec.analytic_account_id = rec.task_id.project_id.analytic_account_id.id
-#     
+#
 #     @api.multi
 #     @api.depends('move_lines',
 #                  'move_lines.product_id',
@@ -37,13 +37,13 @@
 #             rec.worker_resource_total = work_resource_total
 #             rec.work_cost_package_total = work_cost_package_total
 #             rec.subcontract_total = subcontract_total
-#     
+#
 #     @api.multi
 #     @api.depends('purchase_order_ids')
 #     def _purchase_order_count(self):
 #         for rec in self:
 #             rec.purchase_order_count = len(rec.purchase_order_ids)
-#     
+#
 #     task_id = fields.Many2one(
 #         'project.task',
 #         string='Task / Job Order',
@@ -66,11 +66,11 @@
 #         string='Analytic Account',
 #     )
 #     purchase_order_ids = fields.Many2many(
-#         'purchase.order', 
+#         'purchase.order',
 #         string='Purchase Orders',
 #     )
 #     purchase_order_count = fields.Integer(
-#         compute='_purchase_order_count', 
+#         compute='_purchase_order_count',
 #         string="Purchase Orders",
 #         store=True,
 #     )
@@ -94,8 +94,8 @@
 #         string='Subcontract Cost',
 #         store=True,
 #     )
-#     
-#         
+#
+#
 #     @api.multi
 #     def view_purchase_order(self):
 #         for rec in self:

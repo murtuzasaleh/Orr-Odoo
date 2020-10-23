@@ -5,20 +5,13 @@
 
 from odoo import models, fields, api
 
-class ProjectImage(models.Model):
-    _name="project.image"
 
-    name = fields.Char(
-        string="Name",
-        required=True,
-    )
-    image = fields.Binary(
-        string="Photo",
-    )
-    project_id = fields.Many2one(
-        'project.project',
-        string="Project",
-    )
-    
+class ProjectImage(models.Model):
+    _name = "project.image"
+
+    name = fields.Char(string="Name", required=True,)
+    image = fields.Binary(string="Photo",)
+    project_id = fields.Many2one("project.project", string="Project",)
+
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

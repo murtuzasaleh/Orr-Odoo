@@ -3,16 +3,15 @@
 # Part of Probuse Consulting Service Pvt Ltd. See LICENSE file for full copyright and licensing details.
 
 {
-    'name' : 'Work Package for Construction and Contracting',
-    'depends' : ['odoo_job_costing_management'],
-        'version' : '1.2',
-
-    'price': 10.0,
-    'currency': 'EUR',
-    'category': 'Project',
-    'license': 'Other proprietary',
-    'summary': 'This app allow you to create and send work package to your customer.',
-    'description': '''This Module Allow you to create job costing work package.
+    "name": "Work Package for Construction and Contracting",
+    "depends": ["odoo_job_costing_management"],
+    "version": "1.2",
+    "price": 10.0,
+    "currency": "EUR",
+    "category": "Project",
+    "license": "Other proprietary",
+    "summary": "This app allow you to create and send work package to your customer.",
+    "description": """This Module Allow you to create job costing work package.
 work order package
 job order package
 work package
@@ -72,22 +71,22 @@ Work Packs
 package deal
 Planning Package
 
-    ''',
-    'author': 'Probuse Consulting Service Pvt. Ltd.',
-    'website': 'http://www.probuse.com',
-    'support': 'contact@probuse.com',
-    'images': ['static/description/img1.jpg'],
-    'live_test_url': 'https://youtu.be/_5V33wJd9bo',
-    'data': [
-            'security/ir.model.access.csv',
-            'security/security_project_work.xml',
-            'report/work_package_report_template.xml',
-            'report/work_package_report.xml',
-            'data/work_package_email_template.xml',
-            'data/work_package_sequence_data.xml',
-            'views/project_work_package.xml',
-            'views/project_view.xml',
+    """,
+    "author": "Probuse Consulting Service Pvt. Ltd.",
+    "website": "http://www.probuse.com",
+    "support": "contact@probuse.com",
+    "images": ["static/description/img1.jpg"],
+    "live_test_url": "https://youtu.be/_5V33wJd9bo",
+    "data": [
+        "security/ir.model.access.csv",
+        "security/security_project_work.xml",
+        "report/work_package_report_template.xml",
+        "report/work_package_report.xml",
+        "data/work_package_email_template.xml",
+        "data/work_package_sequence_data.xml",
+        "views/project_work_package.xml",
+        "views/project_view.xml",
     ],
-    'installable' : True,
-    'application' : False,
+    "installable": True,
+    "application": False,
 }

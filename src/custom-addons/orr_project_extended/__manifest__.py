@@ -7,10 +7,7 @@
     "maintainer": "Orr Cloud Dev Team",
     "website": "www.orrcorp.com",
     "category": "Projects",
-    "depends": [
-        'fieldservice',
-        'project',
-        'account_accountant'],
+    "depends": ["fieldservice", "project", "account_accountant"],
     "data": [
         "views/fsm_order_form_extended.xml",
         "views/project_task_form_extended.xml",

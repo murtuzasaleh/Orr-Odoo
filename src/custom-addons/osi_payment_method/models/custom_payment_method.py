@@ -3,10 +3,10 @@
 
 from odoo import api, fields, models
 
+
 class CustomPaymentMethod(models.Model):
     _name = "custom.payment.method"
     _description = "User Payment Type"
 
     name = fields.Char(string="User Payment Type")
     code = fields.Char(string="Code")
-

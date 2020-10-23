@@ -3,27 +3,27 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 {
-    'name': 'Project Job Costing and Job Cost Sheet Extended',
-    'summary': 'This module extend the functionality of Project Job '
-    'Costing and Job Cost Sheet.',
-    'license': 'AGPL-3',
-    'version': '12.0.1.0.0',
-    'category': 'Projects',
-    'author': 'Open Source Integrators',
-    'website': 'https://github.com/ursais/osi-addons',
-    'depends': [
-        'odoo_job_costing_management',
-        'odoo_customer_progress_billing',
-        'sale_timesheet'
+    "name": "Project Job Costing and Job Cost Sheet Extended",
+    "summary": "This module extend the functionality of Project Job "
+    "Costing and Job Cost Sheet.",
+    "license": "AGPL-3",
+    "version": "12.0.1.0.0",
+    "category": "Projects",
+    "author": "Open Source Integrators",
+    "website": "https://github.com/ursais/osi-addons",
+    "depends": [
+        "odoo_job_costing_management",
+        "odoo_customer_progress_billing",
+        "sale_timesheet",
     ],
-    'data': [
-        'data/sale_estimate_mail_data.xml',
-        'views/job_costing_view.xml',
-        'views/sale_estimate_job_view.xml',
-        'views/sale_order_view.xml',
-        'views/project_view.xml',
-        'views/account_invoice_view.xml',
-        'report/project_financials_view.xml',
-        'report/progress_bill_report.xml',
+    "data": [
+        "data/sale_estimate_mail_data.xml",
+        "views/job_costing_view.xml",
+        "views/sale_estimate_job_view.xml",
+        "views/sale_order_view.xml",
+        "views/project_view.xml",
+        "views/account_invoice_view.xml",
+        "report/project_financials_view.xml",
+        "report/progress_bill_report.xml",
     ],
 }

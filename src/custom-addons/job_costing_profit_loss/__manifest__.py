@@ -3,15 +3,14 @@
 # Part of Probuse Consulting Service Pvt Ltd. See LICENSE file for full copyright and licensing details.
 
 {
-    'name': 'P&L for Job Costing (Profit and Loss Report)',
-    'price': 49.0,
-    'currency': 'EUR',
-        'version': '1.1.1',
-
-    'category' : 'Projects',
-    'license': 'Other proprietary',
-    'summary': """P&L for Job Costing / Contracting / Construction (Profit and Loss Report).""",
-    'description': """
+    "name": "P&L for Job Costing (Profit and Loss Report)",
+    "price": 49.0,
+    "currency": "EUR",
+    "version": "1.1.1",
+    "category": "Projects",
+    "license": "Other proprietary",
+    "summary": """P&L for Job Costing / Contracting / Construction (Profit and Loss Report).""",
+    "description": """
 This app allow you to add job costing profit and loss report
 P&L for Job Costing (Profit and Loss Report)
 P&L for Job Costing (Profit and Loss Report)
@@ -64,21 +63,19 @@ Construction
 
 
 """,
-    'author': "Probuse Consulting Service Pvt. Ltd.",
-    'website': "http://www.probuse.com",
-    'support': 'contact@probuse.com',
-    'depends': [
-        'job_costing_cost_actual',
+    "author": "Probuse Consulting Service Pvt. Ltd.",
+    "website": "http://www.probuse.com",
+    "support": "contact@probuse.com",
+    "depends": ["job_costing_cost_actual",],
+    "images": ["static/description/img1.jpg"],
+    "live_test_url": "https://youtu.be/WVAXo5_RG18",
+    "data": [
+        "views/job_cost_line_view.xml",
+        "views/job_cost_invoice.xml",
+        "report/job_costing_report.xml",
     ],
-    'images': ['static/description/img1.jpg'],
-    'live_test_url': 'https://youtu.be/WVAXo5_RG18',
-    'data':[
-        'views/job_cost_line_view.xml',
-        'views/job_cost_invoice.xml',
-        'report/job_costing_report.xml',
-    ],
-    'installable' : True,
-    'application' : False,
+    "installable": True,
+    "application": False,
 }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

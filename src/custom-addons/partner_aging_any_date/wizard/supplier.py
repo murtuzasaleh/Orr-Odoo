@@ -6,20 +6,19 @@ from odoo import api, fields, models, _
 
 class SupplierAgingDate(models.TransientModel):
     _name = "supplier.aging.date"
-    _description = 'Supplier Aging Date'
+    _description = "Supplier Aging Date"
 
     age_date = fields.Datetime(
-                        "Aging Date",
-                        required=True,
-                        default=lambda self: fields.Datetime.now())
+        "Aging Date", required=True, default=lambda self: fields.Datetime.now()
+    )
 
     @api.multi
     def open_partner_aging(self):
         ctx = self._context.copy()
         age_date = self.age_date
-        ctx.update({'age_date': age_date})
+        ctx.update({"age_date": age_date})
 
-        supplier_aging = self.env['partner.aging.supplier.ad']
+        supplier_aging = self.env["partner.aging.supplier.ad"]
 
         query = """
                 SELECT
@@ -186,104 +185,88 @@ class SupplierAgingDate(models.TransientModel):
                 and aml.amount_residual!=0
                 GROUP BY aml.partner_id, aml.id, ai.number, days_due, \
                 ai.user_id, ai.id
-              """ % (age_date, age_date, age_date, age_date, age_date,\
-                     age_date, age_date, age_date, age_date, age_date,\
-                     age_date, age_date, age_date, age_date, age_date,\
-                     age_date)
+              """ % (
+            age_date,
+            age_date,
+            age_date,
+            age_date,
+            age_date,
+            age_date,
+            age_date,
+            age_date,
+            age_date,
+            age_date,
+            age_date,
+            age_date,
+            age_date,
+            age_date,
+            age_date,
+            age_date,
+        )
 
-        tools.drop_view_if_exists(self.env.cr, '%s' % (\
-                                    supplier_aging._name.replace('.', '_')))
-        self.env.cr.execute("""
+        tools.drop_view_if_exists(
+            self.env.cr, "%s" % (supplier_aging._name.replace(".", "_"))
+        )
+        self.env.cr.execute(
+            """
                       CREATE OR REPLACE VIEW %s AS ( %s)
-        """ % (supplier_aging._name.replace('.', '_'), query))
+        """
+            % (supplier_aging._name.replace(".", "_"), query)
+        )
 
         return {
-              'name': _('Supplier Aging'),
-              'view_type': 'form',
-              "view_mode": 'tree,form',
-              'res_model': 'partner.aging.supplier.ad',
-              'type': 'ir.actions.act_window',
-              'domain': [('total', '!=', 0)],
-              'context': ctx,
+            "name": _("Supplier Aging"),
+            "view_type": "form",
+            "view_mode": "tree,form",
+            "res_model": "partner.aging.supplier.ad",
+            "type": "ir.actions.act_window",
+            "domain": [("total", "!=", 0)],
+            "context": ctx,
         }
 
 
 class PartnerAgingSupplierAD(models.Model):
-    _name = 'partner.aging.supplier.ad'
-    _description = 'Partner Aging Supplier Ad'
+    _name = "partner.aging.supplier.ad"
+    _description = "Partner Aging Supplier Ad"
     _auto = False
-    _order = 'partner_id'
-    _rec_name = 'partner_id'
+    _order = "partner_id"
+    _rec_name = "partner_id"
 
     @api.multi
     def invopen(self):
         """
             @description  Create link to view each listed invoice
         """
-        view = self.env['ir.model.data'].xmlid_to_object(
-                                                'account.invoice_form')
+        view = self.env["ir.model.data"].xmlid_to_object("account.invoice_form")
         view_id = view and view.id or False
         return {
-            'name': ('Supplier Invoices'),
-            'view_type': 'form',
-            'view_mode': 'form',
-            'view_id': [view_id],
-            'res_model': 'account.invoice',
-            'context': "{'type':'in_invoice'}",
-            'type': 'ir.actions.act_window',
-            'nodestroy': True,
-            'target': 'current',
-            'res_id': self.invoice_id.id,
+            "name": ("Supplier Invoices"),
+            "view_type": "form",
+            "view_mode": "form",
+            "view_id": [view_id],
+            "res_model": "account.invoice",
+            "context": "{'type':'in_invoice'}",
+            "type": "ir.actions.act_window",
+            "nodestroy": True,
+            "target": "current",
+            "res_id": self.invoice_id.id,
         }
 
-    partner_id = fields.Many2one(
-                            'res.partner',
-                            u'Partner',
-                            readonly=True)
-    max_days_overdue = fields.Integer(
-                            u'Days Outstanding',
-                            readonly=True)
-    avg_days_overdue = fields.Integer(
-                            u'Avg Days Overdue',
-                            readonly=True)
-    date = fields.Date(
-                    u'Date',
-                    readonly=True)
-    date_due = fields.Date(
-                        u'Due Date',
-                        readonly=True)
-    inv_date_due = fields.Date(
-                            u'Invoice Date',
-                            readonly=True)
-    total = fields.Float(
-                    u'Total',
-                    readonly=True)
-    not_due = fields.Float(
-                    u'Not Due Yet',
-                    readonly=True)
-    days_due_01to30 = fields.Float(
-                            u'1/30',
-                            readonly=True)
-    days_due_31to60 = fields.Float(
-                            u'31/60',
-                            readonly=True)
-    days_due_61to90 = fields.Float(
-                            u'61/90',
-                            readonly=True)
-    days_due_91to120 = fields.Float(
-                            u'91/120',
-                            readonly=True)
-    days_due_121togr = fields.Float(
-                            u'+121',
-                            readonly=True)
-    invoice_ref = fields.Char(
-                            'Their Invoice',
-                            size=25,
-                            readonly=True)
-    invoice_id = fields.Many2one(
-                                'account.invoice',
-                                'Invoice',
-                                readonly=True)
+    partner_id = fields.Many2one("res.partner", u"Partner", readonly=True)
+    max_days_overdue = fields.Integer(u"Days Outstanding", readonly=True)
+    avg_days_overdue = fields.Integer(u"Avg Days Overdue", readonly=True)
+    date = fields.Date(u"Date", readonly=True)
+    date_due = fields.Date(u"Due Date", readonly=True)
+    inv_date_due = fields.Date(u"Invoice Date", readonly=True)
+    total = fields.Float(u"Total", readonly=True)
+    not_due = fields.Float(u"Not Due Yet", readonly=True)
+    days_due_01to30 = fields.Float(u"1/30", readonly=True)
+    days_due_31to60 = fields.Float(u"31/60", readonly=True)
+    days_due_61to90 = fields.Float(u"61/90", readonly=True)
+    days_due_91to120 = fields.Float(u"91/120", readonly=True)
+    days_due_121togr = fields.Float(u"+121", readonly=True)
+    invoice_ref = fields.Char("Their Invoice", size=25, readonly=True)
+    invoice_id = fields.Many2one("account.invoice", "Invoice", readonly=True)
 
     @api.model_cr
     def init(self):
@@ -437,7 +420,10 @@ class PartnerAgingSupplierAD(models.Model):
                  ai.user_id, ai.id
               """
 
-        tools.drop_view_if_exists(cr, '%s' % (self._name.replace('.', '_')))
-        cr.execute("""
+        tools.drop_view_if_exists(cr, "%s" % (self._name.replace(".", "_")))
+        cr.execute(
+            """
                       CREATE OR REPLACE VIEW %s AS ( %s)
-        """ % (self._name.replace('.', '_'), query))
+        """
+            % (self._name.replace(".", "_"), query)
+        )

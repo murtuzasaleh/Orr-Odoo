@@ -5,8 +5,8 @@ from odoo import models, fields
 
 
 class AccountMove(models.Model):
-    _inherit = 'account.move'
+    _inherit = "account.move"
 
     payment_order_id = fields.Many2one(
-        'account.payment.order', string='Payment Order', copy=False,
-        readonly=True)
+        "account.payment.order", string="Payment Order", copy=False, readonly=True
+    )

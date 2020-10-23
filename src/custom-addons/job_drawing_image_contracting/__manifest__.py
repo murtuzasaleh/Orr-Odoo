@@ -2,16 +2,15 @@
 
 # Part of Probuse Consulting Service Pvt Ltd. See LICENSE file for full copyright and licensing details.
 {
-    'name': "Job Drawing Image Construction and Contracting Business",
-    'version': '1.0',
-        'price': 9.0,
-
-    'depends': ['job_order_start_stop_timer'],
-    'category' : 'Website',
-    'currency': 'EUR',
-    'license': 'Other proprietary',
-    'summary': """Image or Picture of Drawing on Website/My Account for Workers/Supervisors.""",
-    'description': """
+    "name": "Job Drawing Image Construction and Contracting Business",
+    "version": "1.0",
+    "price": 9.0,
+    "depends": ["job_order_start_stop_timer"],
+    "category": "Website",
+    "currency": "EUR",
+    "license": "Other proprietary",
+    "summary": """Image or Picture of Drawing on Website/My Account for Workers/Supervisors.""",
+    "description": """
 Job Drawing Construction Contracting
 engineering drawing
 Job Drawing
@@ -214,17 +213,17 @@ Construction odoo
 odoo Construction
 
 """,
-    'author': "Probuse Consulting Service Pvt. Ltd.",
-    'website': "www.probuse.com",
-    'support': 'contact@probuse.com',
-    'images': ['static/description/img1.jpg'],
-    'live_test_url': 'https://youtu.be/Jlg5NKeIc2I',
-    'data':[
-        'security/ir.model.access.csv',
-        'views/job_card_view.xml',
-        'views/website_template.xml',
+    "author": "Probuse Consulting Service Pvt. Ltd.",
+    "website": "www.probuse.com",
+    "support": "contact@probuse.com",
+    "images": ["static/description/img1.jpg"],
+    "live_test_url": "https://youtu.be/Jlg5NKeIc2I",
+    "data": [
+        "security/ir.model.access.csv",
+        "views/job_card_view.xml",
+        "views/website_template.xml",
     ],
-    'installable' : True,
-    'application' : False,
+    "installable": True,
+    "application": False,
 }
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

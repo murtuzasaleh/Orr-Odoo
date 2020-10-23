@@ -1,123 +1,56 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import fields,api, models, tools
+from odoo import fields, api, models, tools
 
 
 class ReportJobCostingVolumnTrend(models.Model):
-    _name = 'report.job.cost.volumn.trend'
+    _name = "report.job.cost.volumn.trend"
     _description = "Job Trend"
     _auto = False
 
-
     job_type = fields.Selection(
-        selection=[('material','Material'),
-                    ('labour','Labour'),
-                    ('overhead','Overhead')
-                ],
+        selection=[
+            ("material", "Material"),
+            ("labour", "Labour"),
+            ("overhead", "Overhead"),
+        ],
         string="Type",
-                readonly=True
+        readonly=True,
     )
     purchase_id = fields.Many2one(
-        'purchase.order', 
-        string ='Purchase Order',
-        readonly=True
+        "purchase.order", string="Purchase Order", readonly=True
+    )
+    date = fields.Date(string="Date", readonly=True)
+    product_id = fields.Many2one("product.product", string="Product", readonly=True)
 
-    )
-    date = fields.Date(
-        string='Date',
-        readonly=True
-    )
-    product_id = fields.Many2one(
-        'product.product',
-        string='Product',
-        readonly=True
-    )
+    product_qty = fields.Float(string="Planned Quantity", readonly=True)
 
-    product_qty = fields.Float(
-        string='Planned Quantity',
-        readonly=True
-    )
-  
-
-    purchase_qty = fields.Float(
-        string='Purchase Quantity',
-        readonly=True
-    )
-    job_type_id = fields.Many2one(
-        'job.type',
-        string='Job Type',
-        readonly=True
-
-    )
-    hours = fields.Float(
-        string='Hours',
-        readonly=True
-    )
-    direct_id = fields.Many2one(
-        'job.costing',
-        string='Job Costing'
-    )
-    partner_id = fields.Many2one(
-        'res.partner',
-        string='Customer',
-        readonly=True
-        
-    )
-    project_id = fields.Many2one(
-        'project.project',
-        string='Project',
-        readonly=True
-
-    )
+    purchase_qty = fields.Float(string="Purchase Quantity", readonly=True)
+    job_type_id = fields.Many2one("job.type", string="Job Type", readonly=True)
+    hours = fields.Float(string="Hours", readonly=True)
+    direct_id = fields.Many2one("job.costing", string="Job Costing")
+    partner_id = fields.Many2one("res.partner", string="Customer", readonly=True)
+    project_id = fields.Many2one("project.project", string="Project", readonly=True)
     account_invoice_id = fields.Many2one(
-        'account.invoice',
-        string='Vendor Bill',
-        readonly=True
+        "account.invoice", string="Vendor Bill", readonly=True
     )
-    task_id = fields.Many2one(
-        'project.task',
-        string='Job Order',
-        readonly=True
-    )
+    task_id = fields.Many2one("project.task", string="Job Order", readonly=True)
     analytic_id = fields.Many2one(
-        'account.analytic.account',
-        string='Analytic Account',
-        readonly=True
+        "account.analytic.account", string="Analytic Account", readonly=True
     )
-    vendor_quantity = fields.Float(
-        string='Vendor Quantity',
-        readonly=True
-    )
-    date_invoice = fields.Date(
-        string='Vendor Bill Date',
-        readonly=True
-    )
-    date_order_purchase = fields.Datetime(
-        string='Purchase Order Date',
-         readonly=True
-    )
-    timesheet_date = fields.Date(
-        'TImesheet Date',
-        required=True
-    )
-    timesheet_quantity = fields.Float(
-        'Timesheet Quantity', 
-        required=True
-    )
+    vendor_quantity = fields.Float(string="Vendor Quantity", readonly=True)
+    date_invoice = fields.Date(string="Vendor Bill Date", readonly=True)
+    date_order_purchase = fields.Datetime(string="Purchase Order Date", readonly=True)
+    timesheet_date = fields.Date("TImesheet Date", required=True)
+    timesheet_quantity = fields.Float("Timesheet Quantity", required=True)
     timesheet_id = fields.Many2one(
-        'account.analytic.line',
-        string='Analytic Account line',
-        readonly=True
+        "account.analytic.line", string="Analytic Account line", readonly=True
     )
     material_requisition_id = fields.Many2one(
-        'material.purchase.requisition',
-        string='Requisitions', 
+        "material.purchase.requisition", string="Requisitions",
     )
-    requisition_qty = fields.Float(
-        string='Requisition Quantity',
-        readonly=True
-    )
+    requisition_qty = fields.Float(string="Requisition Quantity", readonly=True)
     # requisition_uom = fields.Many2one(
     #     'uom.uom',#product.uom in odoo11
     #     string='Requisition Unit of Measure',
@@ -129,16 +62,15 @@ class ReportJobCostingVolumnTrend(models.Model):
     #     readonly=True
     # )
     # purchase_uom = fields.Many2one(
-    #     'uom.uom', 
-    #     string='Purchase Unit of Measure', 
+    #     'uom.uom',
+    #     string='Purchase Unit of Measure',
     #     readonly=True
     # )
     # vendor_uom = fields.Many2one(
-    #     'uom.uom', 
+    #     'uom.uom',
     #     string='Vendor Unit of Measure',
     #     readonly=True
     # )
-
 
     def _select(self):
         select_str = """
@@ -175,7 +107,6 @@ class ReportJobCostingVolumnTrend(models.Model):
                     
         """
         return select_str
-
 
     def _group_by(self):
         group_by_str = """
@@ -227,13 +158,14 @@ class ReportJobCostingVolumnTrend(models.Model):
         """
         return from_str
 
-
     def init(self):
         tools.drop_view_if_exists(self._cr, self._table)
-        self._cr.execute("""
+        self._cr.execute(
+            """
             CREATE view %s as
               %s
               FROM  %s 
                 %s
-        """ % (self._table, self._select(), self._from(), self._group_by()))
-
+        """
+            % (self._table, self._select(), self._from(), self._group_by())
+        )

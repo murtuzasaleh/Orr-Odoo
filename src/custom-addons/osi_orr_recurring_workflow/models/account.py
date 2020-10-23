@@ -6,6 +6,6 @@ from odoo import fields, models, api
 
 
 class AccountInvoiceLine(models.Model):
-    _inherit = 'account.invoice.line'
+    _inherit = "account.invoice.line"
 
-    fsm_equipment_id = fields.Many2one('fsm.equipment', string='FSM Equipment')
+    fsm_equipment_id = fields.Many2one("fsm.equipment", string="FSM Equipment")

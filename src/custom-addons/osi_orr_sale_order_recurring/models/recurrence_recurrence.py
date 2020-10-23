@@ -7,9 +7,5 @@ class RecurrenceRecurrence(models.Model):
     _name = "recurrence.recurrence"
     _description = "Recurrence"
 
-    name = fields.Char(
-        string="Recurrence Name",
-    )
-    factor = fields.Integer(
-        string="Factor",
-    )
+    name = fields.Char(string="Recurrence Name",)
+    factor = fields.Integer(string="Factor",)

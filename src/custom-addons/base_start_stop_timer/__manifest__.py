@@ -4,31 +4,25 @@
 
 
 {
-    'name': 'Framework for Start and Stop Timer and Digital Signature',
-        'currency': 'EUR',
-
-    'price': 9.0,
-    'version': '2.0',
-    'license': 'Other proprietary',
-    'category': 'Tools',
-    'summary': 'This module is framework for Start and Stop Timer and Digital Signature Feature in Odoo.',
-    'author': "Probuse Consulting Service Pvt. Ltd.",
-    'website': "http://www.probuse.com",
-    'images': ['static/description/img1.jpg'],
-    'support': 'contact@probuse.com',
-    'depends': [
-        'portal',
-        'website',
-        'odoo_mobile_timesheet'
+    "name": "Framework for Start and Stop Timer and Digital Signature",
+    "currency": "EUR",
+    "price": 9.0,
+    "version": "2.0",
+    "license": "Other proprietary",
+    "category": "Tools",
+    "summary": "This module is framework for Start and Stop Timer and Digital Signature Feature in Odoo.",
+    "author": "Probuse Consulting Service Pvt. Ltd.",
+    "website": "http://www.probuse.com",
+    "images": ["static/description/img1.jpg"],
+    "support": "contact@probuse.com",
+    "depends": ["portal", "website", "odoo_mobile_timesheet"],
+    "data": [
+        "security/security.xml",
+        "security/ir.model.access.csv",
+        "views/website_template.xml",
+        "views/record_start_stop_timer_view.xml",
     ],
-    'data': [
-        'security/security.xml',
-        'security/ir.model.access.csv',
-        'views/website_template.xml',
-        'views/record_start_stop_timer_view.xml'
-    ],
-
-    'description': """
+    "description": """
 odoo mobile
 mobile odoo
 start and stop timer
@@ -82,9 +76,8 @@ record time
 time recorder
 
     """,
-
-    'installable': True,
-    'auto_install': False,
+    "installable": True,
+    "auto_install": False,
 }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

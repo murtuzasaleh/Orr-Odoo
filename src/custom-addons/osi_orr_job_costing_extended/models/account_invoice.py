@@ -10,51 +10,49 @@ class AccountInvoice(models.Model):
 
     @api.multi
     def _compute_revised_budget(self):
-        project_obj = self.env['project.project']
+        project_obj = self.env["project.project"]
         for rec in self:
             project_rec = project_obj.search(
-                [('analytic_account_id', '=', rec.project_id.id)], limit=1)
+                [("analytic_account_id", "=", rec.project_id.id)], limit=1
+            )
             if project_rec:
                 rec.revised_budget = project_rec.revised_contract
 
     @api.multi
     def _compute_invoiced(self):
-        project_obj = self.env['project.project']
+        project_obj = self.env["project.project"]
         for rec in self:
             project_rec = project_obj.search(
-                [('analytic_account_id', '=', rec.project_id.id)], limit=1)
+                [("analytic_account_id", "=", rec.project_id.id)], limit=1
+            )
             if project_rec:
                 rec.invoiced = project_rec.invoiced_no_tax
 
     @api.model
     def create(self, vals):
-        if 'origin' in vals and vals.get('origin'):
-            sale_id = self.env['sale.order'].search([('name','=',vals.get('origin'))])
+        if "origin" in vals and vals.get("origin"):
+            sale_id = self.env["sale.order"].search([("name", "=", vals.get("origin"))])
             if sale_id:
-                vals.update({
-                    'project_id': sale_id.analytic_account_id and sale_id.analytic_account_id.id or False
-                    })
+                vals.update(
+                    {
+                        "project_id": sale_id.analytic_account_id
+                        and sale_id.analytic_account_id.id
+                        or False
+                    }
+                )
         res = super(AccountInvoice, self).create(vals)
         return res
 
-    @api.depends('revised_budget', 'invoiced')
+    @api.depends("revised_budget", "invoiced")
     def _compute_remaining_budget(self):
         for rec in self:
             rec.remaining_budget = rec.revised_budget - rec.invoiced
 
-    analytic_tag_ids = fields.Many2many(
-        'account.analytic.tag',
-        string='Analytic Tags',
-    )
+    analytic_tag_ids = fields.Many2many("account.analytic.tag", string="Analytic Tags",)
     revised_budget = fields.Float(
-        string='Revised Budget',
-        compute='_compute_revised_budget'
+        string="Revised Budget", compute="_compute_revised_budget"
     )
-    invoiced = fields.Float(
-        string='Validated Invoices',
-        compute='_compute_invoiced'
-    )
+    invoiced = fields.Float(string="Validated Invoices", compute="_compute_invoiced")
     remaining_budget = fields.Float(
-        string='Remaining Budget',
-        compute='_compute_remaining_budget'
+        string="Remaining Budget", compute="_compute_remaining_budget"
     )

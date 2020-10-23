@@ -6,12 +6,9 @@ from odoo import api, fields, models
 
 
 class Project(models.Model):
-    _inherit = 'project.project'
+    _inherit = "project.project"
 
-    analytic_tag_ids = fields.Many2many(
-        'account.analytic.tag',
-        string='Analytic Tags',
-    )
+    analytic_tag_ids = fields.Many2many("account.analytic.tag", string="Analytic Tags",)
 
     @api.multi
     def compute_project_financials(self):
@@ -36,21 +33,22 @@ class Project(models.Model):
     def _compute_revised_estimate(self):
         for rec in self:
             so_rec = rec.sale_order_id
-            if so_rec and so_rec.state == 'sale':
+            if so_rec and so_rec.state == "sale":
                 total_purchase_price = 0.0
                 for so_line in so_rec.order_line:
                     total_purchase_price += (
-                        so_line.purchase_price * so_line.product_uom_qty)
+                        so_line.purchase_price * so_line.product_uom_qty
+                    )
                 rec.revised_estimate = -total_purchase_price
 
     @api.multi
     def _compute_revised_contract(self):
         for rec in self:
             so_rec = rec.sale_order_id
-            if so_rec and so_rec.state == 'sale':
+            if so_rec and so_rec.state == "sale":
                 rec.revised_contract = so_rec.amount_untaxed
 
-    @api.depends('job_cost_ids')
+    @api.depends("job_cost_ids")
     def _compute_original_estimate(self):
         for rec in self:
             if rec.job_cost_ids:
@@ -59,7 +57,7 @@ class Project(models.Model):
                     count_jobcost_total += cost_sheet_rec.jobcost_total
                 rec.original_estimate = -count_jobcost_total
 
-    @api.depends('job_cost_ids')
+    @api.depends("job_cost_ids")
     def _compute_original_contract(self):
         for rec in self:
             if rec.job_cost_ids:
@@ -68,34 +66,35 @@ class Project(models.Model):
                     count_total_sale += cost_sheet_rec.total_sale
                 rec.original_contract = count_total_sale
 
-    @api.depends('costs', 'revised_estimate')
+    @api.depends("costs", "revised_estimate")
     def _compute_calculated_complete(self):
         for rec in self:
             if rec.costs and rec.revised_estimate:
-                rec.calculated_complete = (abs(rec.costs) / abs(rec.revised_estimate)) * 100
+                rec.calculated_complete = (
+                    abs(rec.costs) / abs(rec.revised_estimate)
+                ) * 100
 
-    @api.depends('revised_contract', 'calculated_complete')
+    @api.depends("revised_contract", "calculated_complete")
     def _compute_revenue_earned(self):
         for rec in self:
-            rec.revenue_earned = rec.revised_contract * rec.calculated_complete/100
+            rec.revenue_earned = rec.revised_contract * rec.calculated_complete / 100
 
-    @api.depends('revenue_earned', 'invoiced_no_tax')
+    @api.depends("revenue_earned", "invoiced_no_tax")
     def _compute_over_under_billed(self):
         for rec in self:
             rec.over_under_billed = rec.revenue_earned - rec.invoiced_no_tax
 
-    @api.depends('revised_estimate', 'costs')
+    @api.depends("revised_estimate", "costs")
     def _compute_projected_cost_complete(self):
         for rec in self:
             rec.projected_cost_complete = -(abs(rec.revised_estimate) - abs(rec.costs))
 
-    @api.depends('revised_contract', 'revised_estimate')
+    @api.depends("revised_contract", "revised_estimate")
     def _compute_projected_profit_loss(self):
         for rec in self:
-            rec.projected_profit_loss = \
-                rec.revised_contract - abs(rec.revised_estimate)
+            rec.projected_profit_loss = rec.revised_contract - abs(rec.revised_estimate)
 
-    @api.depends('revised_contract', 'revised_estimate')
+    @api.depends("revised_contract", "revised_estimate")
     def _compute_projected_profit(self):
         for rec in self:
             if rec.revised_contract:
@@ -107,41 +106,54 @@ class Project(models.Model):
     @api.multi
     def _compute_last_cost_date(self):
         for rec in self:
-            move_line_obj = self.env['account.move.line']
+            move_line_obj = self.env["account.move.line"]
             user_type_income = self.env.ref(
-                'account.data_account_type_direct_costs',
-                raise_if_not_found=False)
+                "account.data_account_type_direct_costs", raise_if_not_found=False
+            )
             for rec in self:
                 move_line_rec = move_line_obj.search(
-                    [('analytic_account_id', '=', rec.analytic_account_id.id),
-                     ('account_id.user_type_id', '=',
-                        user_type_income and user_type_income.id)],
-                    order="id desc", limit=1)
+                    [
+                        ("analytic_account_id", "=", rec.analytic_account_id.id),
+                        (
+                            "account_id.user_type_id",
+                            "=",
+                            user_type_income and user_type_income.id,
+                        ),
+                    ],
+                    order="id desc",
+                    limit=1,
+                )
                 if move_line_rec:
                     rec.last_cost_date = move_line_rec.move_id.date
 
     @api.multi
     def _compute_costs(self):
         for rec in self:
-            profitability_raw_data = self.env['project.profitability.report']\
-                .read_group([('project_id', '=', rec.id)],
-                            ['project_id', 'timesheet_cost',
-                             'expense_cost'], ['project_id'])
+            profitability_raw_data = self.env[
+                "project.profitability.report"
+            ].read_group(
+                [("project_id", "=", rec.id)],
+                ["project_id", "timesheet_cost", "expense_cost"],
+                ["project_id"],
+            )
             timesheet_cost = 0.0
             expense_cost = 0.0
             for data in profitability_raw_data:
-                timesheet_cost += data.get('timesheet_cost', 0.0)
-                expense_cost += data.get('expense_cost', 0.0)
+                timesheet_cost += data.get("timesheet_cost", 0.0)
+                expense_cost += data.get("expense_cost", 0.0)
             rec.costs = timesheet_cost + expense_cost
 
     @api.multi
     def _compute_invoiced_no_tax(self):
-        invoice_obj = self.env['account.invoice']
+        invoice_obj = self.env["account.invoice"]
         for rec in self:
             if rec.analytic_account_id:
                 invoice_rec = invoice_obj.search(
-                    [('project_id', '=', rec.analytic_account_id.id),
-                     ('state', 'in', ('open', 'paid'))])
+                    [
+                        ("project_id", "=", rec.analytic_account_id.id),
+                        ("state", "in", ("open", "paid")),
+                    ]
+                )
                 count_amount_untaxed = 0.0
                 for invoice in invoice_rec:
                     count_amount_untaxed += invoice.amount_untaxed
@@ -149,23 +161,30 @@ class Project(models.Model):
 
     @api.multi
     def _compute_last_date_invoiced(self):
-        invoice_obj = self.env['account.invoice']
+        invoice_obj = self.env["account.invoice"]
         for rec in self:
             if rec.analytic_account_id:
                 invoice_rec = invoice_obj.search(
-                    [('project_id', '=', rec.analytic_account_id.id),
-                     ('state', 'in', ('open', 'paid'))],
-                    order="id desc", limit=1)
+                    [
+                        ("project_id", "=", rec.analytic_account_id.id),
+                        ("state", "in", ("open", "paid")),
+                    ],
+                    order="id desc",
+                    limit=1,
+                )
                 if invoice_rec:
                     rec.last_date_invoiced = invoice_rec.date_invoice
 
     @api.multi
     def _compute_payment_received(self):
-        invoice_obj = self.env['account.invoice']
+        invoice_obj = self.env["account.invoice"]
         for rec in self:
             invoice_rec = invoice_obj.search(
-                [('project_id', '=', rec.analytic_account_id.id),
-                 ('state', 'in', ('open', 'paid'))])
+                [
+                    ("project_id", "=", rec.analytic_account_id.id),
+                    ("state", "in", ("open", "paid")),
+                ]
+            )
             count_payment_received = 0.0
             for invoice in invoice_rec:
                 for payment in invoice.payment_ids:
@@ -174,94 +193,71 @@ class Project(models.Model):
 
     @api.multi
     def _compute_last_payment_received(self):
-        invoice_obj = self.env['account.invoice']
-        payment_obj = self.env['account.payment']
+        invoice_obj = self.env["account.invoice"]
+        payment_obj = self.env["account.payment"]
         for rec in self:
             invoice_rec = invoice_obj.search(
-                [('project_id', '=', rec.analytic_account_id.id),
-                 ('state', 'in', ('open', 'paid'))])
+                [
+                    ("project_id", "=", rec.analytic_account_id.id),
+                    ("state", "in", ("open", "paid")),
+                ]
+            )
             payment_rec = payment_obj.search(
-                [('invoice_ids', 'in', invoice_rec.ids)],
-                order="id desc", limit=1)
+                [("invoice_ids", "in", invoice_rec.ids)], order="id desc", limit=1
+            )
             rec.last_payment_received = payment_rec.payment_date
 
     projected_profit = fields.Float(
-        string='Projected (%) Profit',
-        compute='_compute_projected_profit',
-        store=True,
+        string="Projected (%) Profit", compute="_compute_projected_profit", store=True,
     )
     projected_profit_loss = fields.Float(
-        string='Project Profit (Loss)',
-        compute='_compute_projected_profit_loss',
+        string="Project Profit (Loss)",
+        compute="_compute_projected_profit_loss",
         store=True,
     )
     projected_cost_complete = fields.Float(
-        string='Projected Cost to Complete',
-        compute='_compute_projected_cost_complete',
+        string="Projected Cost to Complete",
+        compute="_compute_projected_cost_complete",
         store=True,
     )
     over_under_billed = fields.Float(
-        string='Over/Under Billed',
-        compute='_compute_over_under_billed',
-        store=True,
+        string="Over/Under Billed", compute="_compute_over_under_billed", store=True,
     )
     revenue_earned = fields.Float(
-        string='Revenue Earned',
-        compute='_compute_revenue_earned',
-        store=True,
+        string="Revenue Earned", compute="_compute_revenue_earned", store=True,
     )
     calculated_complete = fields.Float(
-        string='Calculated (%) Complete',
-        compute='_compute_calculated_complete',
+        string="Calculated (%) Complete",
+        compute="_compute_calculated_complete",
         store=True,
     )
     revised_contract = fields.Float(
-        string='Revised Contract',
-        compute='_compute_revised_contract',
-        store=True,
+        string="Revised Contract", compute="_compute_revised_contract", store=True,
     )
     original_contract = fields.Float(
-        string='Original Contract',
-        compute='_compute_original_contract',
-        store=True,
+        string="Original Contract", compute="_compute_original_contract", store=True,
     )
     revised_estimate = fields.Float(
-        string='Revised Estimate',
-        compute='_compute_revised_estimate',
-        store=True,
+        string="Revised Estimate", compute="_compute_revised_estimate", store=True,
     )
     original_estimate = fields.Float(
-        string='Original Estimate',
-        compute='_compute_original_estimate',
-        store=True,
+        string="Original Estimate", compute="_compute_original_estimate", store=True,
     )
     last_cost_date = fields.Date(
-        string='Last Cost Date',
-        compute='_compute_last_cost_date',
-        store=True,
+        string="Last Cost Date", compute="_compute_last_cost_date", store=True,
     )
-    costs = fields.Float(
-        string='Costs',
-        compute='_compute_costs',
-        store=True,
-    )
+    costs = fields.Float(string="Costs", compute="_compute_costs", store=True,)
     last_date_invoiced = fields.Date(
-        string='Last Date Invoiced',
-        compute='_compute_last_date_invoiced',
-        store=True,
+        string="Last Date Invoiced", compute="_compute_last_date_invoiced", store=True,
     )
     invoiced_no_tax = fields.Float(
-        string='Invoiced (no tax)',
-        compute='_compute_invoiced_no_tax',
-        store=True,
+        string="Invoiced (no tax)", compute="_compute_invoiced_no_tax", store=True,
     )
     last_payment_received = fields.Date(
-        string='Last Payment Received',
-        compute='_compute_last_payment_received',
+        string="Last Payment Received",
+        compute="_compute_last_payment_received",
         store=True,
     )
     payment_received = fields.Float(
-        string='Payment received',
-        compute='_compute_payment_received',
-        store=True,
+        string="Payment received", compute="_compute_payment_received", store=True,
     )

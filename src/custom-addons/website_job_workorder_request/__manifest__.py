@@ -2,25 +2,23 @@
 # Part of Probuse Consulting Service Pvt Ltd. See LICENSE file for full copyright and licensing details.
 
 {
-    'name': 'Website Job/Work Order Form and Portal',
-    'depends': [
-        'project', 
-        'website', 
-        'document',
-        'hr_timesheet',
-        'material_purchase_requisitions',
-        ],
-            'price': 39.0,
-
-    'currency': 'EUR',
-
-    'version': '1.1.4',
-    'author': 'Probuse Consulting Service Pvt. Ltd.',
-    'license': 'Other proprietary',
-    'category': 'Website',
-    'summary': 'This module allow your customer/visitor to create job order or work order from your website.',
-    'website': 'https://www.probuse.com',
-    'description': """
+    "name": "Website Job/Work Order Form and Portal",
+    "depends": [
+        "project",
+        "website",
+        "document",
+        "hr_timesheet",
+        "material_purchase_requisitions",
+    ],
+    "price": 39.0,
+    "currency": "EUR",
+    "version": "1.1.4",
+    "author": "Probuse Consulting Service Pvt. Ltd.",
+    "license": "Other proprietary",
+    "category": "Website",
+    "summary": "This module allow your customer/visitor to create job order or work order from your website.",
+    "website": "https://www.probuse.com",
+    "description": """
     Website job Workorder Request
 Website Job/Work Order Form and Portal
 job order
@@ -480,26 +478,26 @@ Construction odoo
 odoo Construction
 
 """,
-    'images': ['static/description/img1.jpeg'],
+    "images": ["static/description/img1.jpeg"],
     # 'live_test_url' : 'https://youtu.be/iRA3emFeDU4',
-    'live_test_url' : 'https://youtu.be/O6yVI1NG5W8 ',
-    'data': [
-        'security/ir.model.access.csv',
-        'report/joborder_report.xml',
-        'data/custom_job_order_category_data.xml',
-        'data/joborder_sequence.xml',
-        'data/joborder_customer_mail_template.xml',
-        'data/mail_templates_job_order.xml',
-        'views/job_workorder_request_template.xml',
-        'views/project_task_form_view.xml',
-        'views/project_from_view.xml',
-        'views/assets.xml',
-        'views/job_order_view.xml',
-        'views/purchase_requisition_view.xml',
-        'views/custom_job_order_category_view.xml',
+    "live_test_url": "https://youtu.be/O6yVI1NG5W8 ",
+    "data": [
+        "security/ir.model.access.csv",
+        "report/joborder_report.xml",
+        "data/custom_job_order_category_data.xml",
+        "data/joborder_sequence.xml",
+        "data/joborder_customer_mail_template.xml",
+        "data/mail_templates_job_order.xml",
+        "views/job_workorder_request_template.xml",
+        "views/project_task_form_view.xml",
+        "views/project_from_view.xml",
+        "views/assets.xml",
+        "views/job_order_view.xml",
+        "views/purchase_requisition_view.xml",
+        "views/custom_job_order_category_view.xml",
     ],
-    'installable': True,
-    'auto_install': False,
+    "installable": True,
+    "auto_install": False,
 }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

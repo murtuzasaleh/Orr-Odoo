@@ -3,13 +3,13 @@
 # Part of Probuse Consulting Service Pvt Ltd. See LICENSE file for full copyright and licensing details.
 
 {
-    'name': 'Product/Material Purchase Requisitions by Employees/Users',
-    'version': '1.3.9',
-    'price': 79.0,
-    'currency': 'EUR',
-    'license': 'Other proprietary',
-    'summary': """This module allow your employees/users to create Purchase Requisitions.""",
-    'description': """
+    "name": "Product/Material Purchase Requisitions by Employees/Users",
+    "version": "1.3.9",
+    "price": 79.0,
+    "currency": "EUR",
+    "license": "Other proprietary",
+    "summary": """This module allow your employees/users to create Purchase Requisitions.""",
+    "description": """
     Material Purchase Requisitions
     This module allowed Purchase requisition of employee.
 Purchase_Requisition_Via_iProcurement
@@ -87,32 +87,28 @@ Email notifications to Department Manager, Requisition Manager for approval.
 
 
     """,
-    'author': 'Probuse Consulting Service Pvt. Ltd.',
-    'website': 'http://www.probuse.com',
-    'support': 'contact@probuse.com',
-    'images': ['static/description/img1.jpeg'],
-    'live_test_url': 'https://youtu.be/1AgKs7gfe4M',
-    'category': 'Warehouse',
-    'depends': [
-                'stock',
-                'hr',
-                'purchase',
-                ],
-    'data':[
-        'security/security.xml',
-        'security/multi_company_security.xml',
-        'security/ir.model.access.csv',
-        'data/purchase_requisition_sequence.xml',
-        'data/employee_purchase_approval_template.xml',
-        'data/confirm_template_material_purchase.xml',
-        'report/purchase_requisition_report.xml',
-        'views/purchase_requisition_view.xml',
-        'views/hr_employee_view.xml',
-        'views/hr_department_view.xml',
-        'views/stock_picking_view.xml',
+    "author": "Probuse Consulting Service Pvt. Ltd.",
+    "website": "http://www.probuse.com",
+    "support": "contact@probuse.com",
+    "images": ["static/description/img1.jpeg"],
+    "live_test_url": "https://youtu.be/1AgKs7gfe4M",
+    "category": "Warehouse",
+    "depends": ["stock", "hr", "purchase",],
+    "data": [
+        "security/security.xml",
+        "security/multi_company_security.xml",
+        "security/ir.model.access.csv",
+        "data/purchase_requisition_sequence.xml",
+        "data/employee_purchase_approval_template.xml",
+        "data/confirm_template_material_purchase.xml",
+        "report/purchase_requisition_report.xml",
+        "views/purchase_requisition_view.xml",
+        "views/hr_employee_view.xml",
+        "views/hr_department_view.xml",
+        "views/stock_picking_view.xml",
     ],
-    'installable' : True,
-    'application' : False,
+    "installable": True,
+    "application": False,
 }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

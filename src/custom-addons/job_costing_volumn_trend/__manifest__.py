@@ -3,13 +3,12 @@
 # Part of Probuse Consulting Service Pvt Ltd. See LICENSE file for full copyright and licensing details.
 
 {
-    'name': 'Job Costing / Contracting Volumn Trends Report',
-    'currency': 'EUR',
-    'license': 'Other proprietary',
-        'price': 19.0,
-
-    'summary': """Treds analysis report for Job Costing and Contracting Sheets.""",
-    'description': """
+    "name": "Job Costing / Contracting Volumn Trends Report",
+    "currency": "EUR",
+    "license": "Other proprietary",
+    "price": 19.0,
+    "summary": """Treds analysis report for Job Costing and Contracting Sheets.""",
+    "description": """
 This module adds Reporting for Job Costing management
 job cost sheet
 Odoo Job Costing And Job Cost Sheet (Contracting)
@@ -149,24 +148,21 @@ Construction app
 Construction odoo
 
     """,
-    'author': "Probuse Consulting Service Pvt. Ltd.",
-    'website': "http://www.probuse.com",
-    'support': 'contact@probuse.com',
-    'images': ['static/description/images.jpg'],
-    'live_test_url': 'https://youtu.be/JcWQRC3LtW0',
-    'version': '1.1.1',
-    'category' : 'Project',
-    'depends': [
-        'odoo_job_costing_management',
-        'material_requisition_cost_sheet',
+    "author": "Probuse Consulting Service Pvt. Ltd.",
+    "website": "http://www.probuse.com",
+    "support": "contact@probuse.com",
+    "images": ["static/description/images.jpg"],
+    "live_test_url": "https://youtu.be/JcWQRC3LtW0",
+    "version": "1.1.1",
+    "category": "Project",
+    "depends": ["odoo_job_costing_management", "material_requisition_cost_sheet",],
+    "data": [
+        "security/ir.model.access.csv",
+        "report/job_costing_trends.xml",
+        "views/view.xml",
     ],
-    'data':[
-        'security/ir.model.access.csv',
-        'report/job_costing_trends.xml',
-        'views/view.xml',
-    ],
-    'installable' : True,
-    'application' : False,
+    "installable": True,
+    "application": False,
 }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

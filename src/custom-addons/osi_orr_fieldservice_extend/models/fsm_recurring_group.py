@@ -6,7 +6,7 @@ from odoo import fields, models
 
 
 class FsmRecurringGroup(models.Model):
-    _name = 'fsm.recurring.group'
-    _description = 'FSM Recurring Group'
+    _name = "fsm.recurring.group"
+    _description = "FSM Recurring Group"
 
-    name = fields.Char('Name')
+    name = fields.Char("Name")

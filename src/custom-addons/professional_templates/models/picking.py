@@ -37,13 +37,15 @@ from odoo import models, fields, api
 class PK(models.Model):
     """Inventory model inherited to add more fields and methods for the
     reporting templates module."""
+
     _inherit = ["stock.picking"]
 
     pk_style = fields.Many2one(
-        'report.template.settings',
-        'Picking Style',
+        "report.template.settings",
+        "Picking Style",
         help="Select Style to use when printing the picking slip",
-        default=lambda self: self.partner_id.style or self.env.user.company_id.df_style)
+        default=lambda self: self.partner_id.style or self.env.user.company_id.df_style,
+    )
 
     @api.model
     def create(self, vals):

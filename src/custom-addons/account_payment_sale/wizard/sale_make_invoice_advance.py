@@ -5,7 +5,7 @@ from odoo import models, api
 
 
 class SaleAdvancePaymentInv(models.TransientModel):
-    _inherit = 'sale.advance.payment.inv'
+    _inherit = "sale.advance.payment.inv"
 
     @api.multi
     def _create_invoice(self, order, so_line, amount):

@@ -2,27 +2,27 @@
 # Part of Probuse Consulting Service Pvt Ltd. See LICENSE file for full copyright and licensing details.
 
 {
-    'name': 'Change Order in Job Contracting and Construction',
-    'license': 'Other proprietary',
-    'category' : 'Projects',
-    'depends': ['odoo_job_costing_management',],
-    'summary': 'Change Order Management in Job Contracting and Construction Business',
-    'price': 39.0,
-    'currency': 'EUR',
-    'support': 'contact@probuse.com',
-    'live_test_url' : 'https://youtu.be/oxfV5NNJrWQ',
-    'images': ['static/description/img1.jpg'],
-    'data': [
-        'security/ir.model.access.csv',
-        'data/change_order_sequence.xml',
-        'views/construction_change_order_view.xml',
-        'views/smart_button_view.xml',
-        'report/change_order_report.xml',
+    "name": "Change Order in Job Contracting and Construction",
+    "license": "Other proprietary",
+    "category": "Projects",
+    "depends": ["odoo_job_costing_management",],
+    "summary": "Change Order Management in Job Contracting and Construction Business",
+    "price": 39.0,
+    "currency": "EUR",
+    "support": "contact@probuse.com",
+    "live_test_url": "https://youtu.be/oxfV5NNJrWQ",
+    "images": ["static/description/img1.jpg"],
+    "data": [
+        "security/ir.model.access.csv",
+        "data/change_order_sequence.xml",
+        "views/construction_change_order_view.xml",
+        "views/smart_button_view.xml",
+        "report/change_order_report.xml",
     ],
-    'author' : 'Probuse Consulting Service Pvt. Ltd.',
-    'website': 'www.probuse.com',
-    'version': '1.1',
-    'description': """
+    "author": "Probuse Consulting Service Pvt. Ltd.",
+    "website": "www.probuse.com",
+    "version": "1.1",
+    "description": """
 change order
 change order construction
 chang order job
@@ -225,8 +225,8 @@ odoo Construction
 
 
 """,
-    'installable': True,
-    'auto_install': False,
+    "installable": True,
+    "auto_install": False,
 }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

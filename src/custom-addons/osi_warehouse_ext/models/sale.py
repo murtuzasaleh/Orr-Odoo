@@ -4,18 +4,16 @@ from odoo import models, fields, api, _
 
 
 class SaleOrder(models.Model):
-    _inherit = 'sale.order'
+    _inherit = "sale.order"
 
     analytic_segment_one_id = fields.Many2one(
-        'analytic.segment.one',
-        string='Job Type',
-        copy=False)
+        "analytic.segment.one", string="Job Type", copy=False
+    )
 
 
 class SaleOrderLine(models.Model):
-    _inherit = 'sale.order.line'
+    _inherit = "sale.order.line"
 
     analytic_segment_one_id = fields.Many2one(
-        'analytic.segment.one',
-        string='Job Type',
-        copy=False)
+        "analytic.segment.one", string="Job Type", copy=False
+    )

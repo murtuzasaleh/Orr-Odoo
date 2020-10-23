@@ -2,17 +2,17 @@
 # Part of Probuse Consulting Service Pvt Ltd. See LICENSE file for full copyright and licensing details.
 
 {
-    'name': 'Website Job/Work Order Form and Portal',
-    'price': 19.0,
-    'currency': 'EUR',
-    'depends': ['odoo_job_costing_management', 'website', 'document'],
-    'version': '1.2',
-    'author': 'Probuse Consulting Service Pvt. Ltd.',
-    'license': 'Other proprietary',
-    'category': 'Website',
-    'summary': 'This module allow your customer/visitor to create job order or work order from your website.',
-    'website': 'https://www.probuse.com',
-    'description': """
+    "name": "Website Job/Work Order Form and Portal",
+    "price": 19.0,
+    "currency": "EUR",
+    "depends": ["odoo_job_costing_management", "website", "document"],
+    "version": "1.2",
+    "author": "Probuse Consulting Service Pvt. Ltd.",
+    "license": "Other proprietary",
+    "category": "Website",
+    "summary": "This module allow your customer/visitor to create job order or work order from your website.",
+    "website": "https://www.probuse.com",
+    "description": """
     Job Workorder Website Request
 Website Job/Work Order Form and Portal
 job order
@@ -458,16 +458,16 @@ Construction app
 Construction odoo
 odoo Construction
 """,
-    'images': ['static/description/img1.jpg'],
-    'live_test_url': 'https://www.youtube.com/watch?v=evPTNSfgYpY',
-    'data': [
-        'views/task_report.xml',
-        'datas/mail_templates_job_order.xml',
-        'views/job_workorder_request_template.xml',
-        'views/project_task_form_view.xml',
-        'views/project_from_view.xml',
-        'views/assets.xml',
+    "images": ["static/description/img1.jpg"],
+    "live_test_url": "https://www.youtube.com/watch?v=evPTNSfgYpY",
+    "data": [
+        "views/task_report.xml",
+        "datas/mail_templates_job_order.xml",
+        "views/job_workorder_request_template.xml",
+        "views/project_task_form_view.xml",
+        "views/project_from_view.xml",
+        "views/assets.xml",
     ],
-    'installable': True,
-    'auto_install': False,
+    "installable": True,
+    "auto_install": False,
 }

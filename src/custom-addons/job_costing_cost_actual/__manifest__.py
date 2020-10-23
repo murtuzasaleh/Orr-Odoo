@@ -3,18 +3,15 @@
 # Part of Probuse Consulting Service Pvt Ltd. See LICENSE file for full copyright and licensing details.
 
 {
-    'name': "Actual Cost on Job Cost Sheet",
-    'price': 9.0,
-
-    'version': '1.1.0',
-    'depends': [
-        'odoo_job_costing_management',
-    ],
-    'category' : 'Projects',
-    'license': 'Other proprietary',
-    'currency': 'EUR',
-    'summary': """This app allow you to see Actual Purchased Cost, Actual Vendor Bill Cost and Actual Timesheet Cost.""",
-    'description': """
+    "name": "Actual Cost on Job Cost Sheet",
+    "price": 9.0,
+    "version": "1.1.0",
+    "depends": ["odoo_job_costing_management",],
+    "category": "Projects",
+    "license": "Other proprietary",
+    "currency": "EUR",
+    "summary": """This app allow you to see Actual Purchased Cost, Actual Vendor Bill Cost and Actual Timesheet Cost.""",
+    "description": """
 This app allow you to view Actual Purchased Cost, Actual Vendor Bill Cost and Actual Timesheet Cost.
 job cost sheet
 Odoo Job Costing And Job Cost Sheet (Contracting)
@@ -153,18 +150,15 @@ construction
 Construction app
 Construction odoo
 """,
-    'author': "Probuse Consulting Service Pvt. Ltd.",
-    'website': "http://www.probuse.com",
-    'support': 'contact@probuse.com',
-    'images': ['static/description/img1.jpg'],
-    'live_test_url': 'https://youtu.be/57kFM9krlvA',
-    'data':[
-        'views/job_cost_line_view.xml',
-        'report/job_costing_report.xml'
-    ],
-    'installable' : True,
-    'application' : False,
-    'auto_install' : False,
+    "author": "Probuse Consulting Service Pvt. Ltd.",
+    "website": "http://www.probuse.com",
+    "support": "contact@probuse.com",
+    "images": ["static/description/img1.jpg"],
+    "live_test_url": "https://youtu.be/57kFM9krlvA",
+    "data": ["views/job_cost_line_view.xml", "report/job_costing_report.xml"],
+    "installable": True,
+    "application": False,
+    "auto_install": False,
 }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

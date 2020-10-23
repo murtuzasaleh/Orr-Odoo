@@ -1,18 +1,14 @@
 # -*- coding: utf-8 -*-
 
 {
-    'name': 'Sales Estimate Create from Job Cost Sheet',
-    'depends': [
-        'odoo_job_costing_management',
-        'job_cost_estimate_customer',
-    ],
-        'version': "1.1",
-
-    'price': 49.0,
-    'currency': 'EUR',
-    'license': 'Other proprietary',
-    'summary': 'This module allow you to create Job Estimate from Job Cost Sheet.',
-    'description': """
+    "name": "Sales Estimate Create from Job Cost Sheet",
+    "depends": ["odoo_job_costing_management", "job_cost_estimate_customer",],
+    "version": "1.1",
+    "price": 49.0,
+    "currency": "EUR",
+    "license": "Other proprietary",
+    "summary": "This module allow you to create Job Estimate from Job Cost Sheet.",
+    "description": """
         This module allow you to create Job Estimate from job cost sheet
 Allow you to create Job Estimation(s)
 Job Estimation(s) will create from the Job Cost Sheet.
@@ -199,17 +195,16 @@ odoo Construction
 
 
             """,
-    'category': 'Accounting',
-    'author': 'Probuse Consulting Service Pvt. Ltd.',
-    'website': 'www.probuse.com',
-    'support': 'contact@probuse.com',
-    'images': ['static/description/img1.jpg'],
-    'live_test_url': 'https://youtu.be/xcCragas8VY',
-
-    'data': [
-            'wizard/create_estimate_view.xml',
-            'views/job_costing_view.xml',
-            'views/job_estimate_views.xml',
+    "category": "Accounting",
+    "author": "Probuse Consulting Service Pvt. Ltd.",
+    "website": "www.probuse.com",
+    "support": "contact@probuse.com",
+    "images": ["static/description/img1.jpg"],
+    "live_test_url": "https://youtu.be/xcCragas8VY",
+    "data": [
+        "wizard/create_estimate_view.xml",
+        "views/job_costing_view.xml",
+        "views/job_estimate_views.xml",
     ],
     "installable": True,
     "application": False,

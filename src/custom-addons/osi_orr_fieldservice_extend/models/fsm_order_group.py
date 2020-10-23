@@ -6,7 +6,7 @@ from odoo import fields, models
 
 
 class FsmOrderGroup(models.Model):
-    _name = 'fsm.order.group'
-    _description = 'FSM Order Group'
+    _name = "fsm.order.group"
+    _description = "FSM Order Group"
 
-    name = fields.Char('Name')
+    name = fields.Char("Name")

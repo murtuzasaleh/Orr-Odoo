@@ -2,20 +2,18 @@
 
 from odoo import models, fields
 
+
 class PurchaseOrder(models.Model):
-    _inherit = 'purchase.order'
-    
+    _inherit = "purchase.order"
+
     custom_requisition_id = fields.Many2one(
-        'material.purchase.requisition',
-        string='Requisitions',
-        copy=False
+        "material.purchase.requisition", string="Requisitions", copy=False
     )
 
+
 class PurchaseOrderLine(models.Model):
-    _inherit = 'purchase.order.line'
-    
+    _inherit = "purchase.order.line"
+
     custom_requisition_line_id = fields.Many2one(
-        'material.purchase.requisition.line',
-        string='Requisitions Line',
-        copy=False
+        "material.purchase.requisition.line", string="Requisitions Line", copy=False
     )

@@ -3,14 +3,13 @@
 # Part of Probuse Consulting Service Pvt Ltd. See LICENSE file for full copyright and licensing details.
 
 {
-    'name': 'Document Management with Document Numerbing and Tags',
-        'price': 99.0,
-
-    'depends': ['document_directory_extension'],
-    'currency': 'EUR',
-    'license': 'Other proprietary',
-    'summary': """Attachment/Document Extension with Directory Numerbing and Tags""",
-    'description': """
+    "name": "Document Management with Document Numerbing and Tags",
+    "price": 99.0,
+    "depends": ["document_directory_extension"],
+    "currency": "EUR",
+    "license": "Other proprietary",
+    "summary": """Attachment/Document Extension with Directory Numerbing and Tags""",
+    "description": """
 Document Extension
 Document Extension. This module add directory on ir.attachment model
 Attachment/Document Extension with Directory and Numbering
@@ -85,24 +84,24 @@ document folders
 attachment unique number
 reference unique number
     """,
-    'author': "Probuse Consulting Service Pvt. Ltd.",
-    'website': "http://www.probuse.com",
-    'support': 'contact@probuse.com',
-    'images': ['static/description/img1.png'],
-    'live_test_url': 'https://youtu.be/Q9P82N570Tc',
-    'version': '1.1',
-    'category' : 'Document Management',
-    'data':[
-        'security/document_security.xml',
-        'security/ir.model.access.csv',
-        'views/document_directory_tags.xml',
-        'views/attachment_tags.xml',
-        'views/document.xml',
-        'views/attachment_directory.xml',
+    "author": "Probuse Consulting Service Pvt. Ltd.",
+    "website": "http://www.probuse.com",
+    "support": "contact@probuse.com",
+    "images": ["static/description/img1.png"],
+    "live_test_url": "https://youtu.be/Q9P82N570Tc",
+    "version": "1.1",
+    "category": "Document Management",
+    "data": [
+        "security/document_security.xml",
+        "security/ir.model.access.csv",
+        "views/document_directory_tags.xml",
+        "views/attachment_tags.xml",
+        "views/document.xml",
+        "views/attachment_directory.xml",
     ],
-    'installable' : True,
-    'application' : False,
-    'auto_install' : False,
+    "installable": True,
+    "application": False,
+    "auto_install": False,
 }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

@@ -3,23 +3,21 @@
 # Part of Probuse Consulting Service Pvt Ltd. See LICENSE file for full copyright and licensing details.
 
 {
-    'name': 'Material Purchase Requisition and Cost Sheet Integration',
-    'version': '1.2',
-    'currency': 'EUR',
-    'price': 49.0,
-    'depends': [
-        'odoo_job_costing_management',
-    ],
-    'support': 'contact@probuse.com',
-    'author': 'Probuse Consulting Service Pvt. Ltd.',
-    'website': 'www.probuse.com',
-    'images': ['static/description/img1.jpg'],
+    "name": "Material Purchase Requisition and Cost Sheet Integration",
+    "version": "1.2",
+    "currency": "EUR",
+    "price": 49.0,
+    "depends": ["odoo_job_costing_management",],
+    "support": "contact@probuse.com",
+    "author": "Probuse Consulting Service Pvt. Ltd.",
+    "website": "www.probuse.com",
+    "images": ["static/description/img1.jpg"],
     #'live_test_url': 'https://youtu.be/_zM0gpuB5VM',
-    'live_test_url': 'https://youtu.be/8tUoIxklxfQ',
-    'license': 'Other proprietary',
-    'category' : 'Projects',
-    'summary': 'This module integrate Material Requisition with Job Cost Sheet',
-    'description': """
+    "live_test_url": "https://youtu.be/8tUoIxklxfQ",
+    "license": "Other proprietary",
+    "category": "Projects",
+    "summary": "This module integrate Material Requisition with Job Cost Sheet",
+    "description": """
 Material Requisition Cost Sheet
 - Allow you to create job cost sheets for your projects/contract.<br>
 - Allow you to have Project/Contract with Job orders.<br>
@@ -266,14 +264,14 @@ Construction odoo
 odoo Construction
 
             """,
-    'data': [
-        'views/mpr_line_view.xml',
-        'views/jobcost_line_view.xml',
-        'views/job_cost_report.xml',
-        'views/mpr_view.xml',
-             ],
-    'installable': True,
-    'application': False,
+    "data": [
+        "views/mpr_line_view.xml",
+        "views/jobcost_line_view.xml",
+        "views/job_cost_report.xml",
+        "views/mpr_view.xml",
+    ],
+    "installable": True,
+    "application": False,
 }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

@@ -3,21 +3,21 @@
 # Part of Probuse Consulting Service Pvt Ltd. See LICENSE file for full copyright and licensing details.
 
 {
-    'name': 'MRO - Equipment Maintenance Management',
-    'version': '1.2.1',
-    'currency': 'EUR',
-    'price': 10.0,
-    'depends': [
-                'stock',
-                'maintenance',
-                'hr_maintenance',
-                'website_job_workorder_request',
-                'material_purchase_requisitions',
-                ],
-    'license': 'Other proprietary',
-    'category': 'Human Resources',
-    'summary': """This app allow you to create material requisition and job order from maintenance request form""",
-    'description': """
+    "name": "MRO - Equipment Maintenance Management",
+    "version": "1.2.1",
+    "currency": "EUR",
+    "price": 10.0,
+    "depends": [
+        "stock",
+        "maintenance",
+        "hr_maintenance",
+        "website_job_workorder_request",
+        "material_purchase_requisitions",
+    ],
+    "license": "Other proprietary",
+    "category": "Human Resources",
+    "summary": """This app allow you to create material requisition and job order from maintenance request form""",
+    "description": """
 Asset Mro Maintenance Management
 Maintenance Plan Material
 Maintenance Chceklist
@@ -420,22 +420,22 @@ Email notifications to Department Manager, Requisition Manager for approval.
 - For more details please see Video on live preview or ask us by email...
 
     """,
-    'author': 'Probuse Consulting Service Pvt. Ltd.',
-    'website': 'http://www.probuse.com',
-    'support': 'contact@probuse.com',
-    'images': ['static/description/img1.jpg'],
-    'live_test_url': 'https://youtu.be/lxZ8XApXqHg',
-    'data':[
-        'security/ir.model.access.csv',
-        'views/maintenance_request_view.xml',
-        'views/maintenance_equipment_view.xml',
-        'views/project_task_view.xml',
-        'views/material_purchase_requisition_view.xml',
-        'views/equipment_checklist_view.xml',
-        'report/maintenance_request_report.xml',
+    "author": "Probuse Consulting Service Pvt. Ltd.",
+    "website": "http://www.probuse.com",
+    "support": "contact@probuse.com",
+    "images": ["static/description/img1.jpg"],
+    "live_test_url": "https://youtu.be/lxZ8XApXqHg",
+    "data": [
+        "security/ir.model.access.csv",
+        "views/maintenance_request_view.xml",
+        "views/maintenance_equipment_view.xml",
+        "views/project_task_view.xml",
+        "views/material_purchase_requisition_view.xml",
+        "views/equipment_checklist_view.xml",
+        "report/maintenance_request_report.xml",
     ],
-    'installable' : True,
-    'application' : False,
+    "installable": True,
+    "application": False,
 }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

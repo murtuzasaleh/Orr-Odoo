@@ -3,20 +3,15 @@
 # Part of Probuse Consulting Service Pvt Ltd. See LICENSE file for full copyright and licensing details.
 
 {
-    'name': "Repair App for Construction and Contracting",
-        'price': 9.0,
-
-    'depends': [
-                'machine_repair_management',
-                'odoo_job_costing_management',
-                ],
-    'version': '1.0',
-
-    'category' : 'Projects',
-    'license': 'Other proprietary',
-    'currency': 'EUR',
-    'summary': """This app link Job order with Repair Request.""",
-    'description': """
+    "name": "Repair App for Construction and Contracting",
+    "price": 9.0,
+    "depends": ["machine_repair_management", "odoo_job_costing_management",],
+    "version": "1.0",
+    "category": "Projects",
+    "license": "Other proprietary",
+    "currency": "EUR",
+    "summary": """This app link Job order with Repair Request.""",
+    "description": """
 
 Machine Repair Request and Management
 This module develop to full fill requirements of Machine Repair Services Provider or Industry.
@@ -301,17 +296,14 @@ workshop machine repair
 
     
     """,
-    'author': "Probuse Consulting Service Pvt. Ltd.",
-    'website': "http://www.probuse.com",
-    'support': 'contact@probuse.com',
-    'images': ['static/description/img.jpeg'],
-    'live_test_url': 'https://youtu.be/XwlmTT4776E',
-    'data':[
-           'wizard/create_repair_request_view.xml',
-           'views/project_task_view.xml',
-    ],
-    'installable' : True,
-    'application' : False,
+    "author": "Probuse Consulting Service Pvt. Ltd.",
+    "website": "http://www.probuse.com",
+    "support": "contact@probuse.com",
+    "images": ["static/description/img.jpeg"],
+    "live_test_url": "https://youtu.be/XwlmTT4776E",
+    "data": ["wizard/create_repair_request_view.xml", "views/project_task_view.xml",],
+    "installable": True,
+    "application": False,
 }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

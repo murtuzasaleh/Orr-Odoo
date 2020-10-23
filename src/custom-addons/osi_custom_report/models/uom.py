@@ -3,9 +3,10 @@
 
 from odoo import fields, models
 
+
 class Unit(models.Model):
-    _inherit = 'uom.uom'
-    
+    _inherit = "uom.uom"
+
     short_code = fields.Char(
-        'Abbreviation',
-        help='Abbreviation for the Unit to be used on reports')
+        "Abbreviation", help="Abbreviation for the Unit to be used on reports"
+    )

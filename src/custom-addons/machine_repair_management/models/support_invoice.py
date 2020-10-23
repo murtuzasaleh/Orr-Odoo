@@ -1,12 +1,12 @@
 #  -*- coding: utf-8 -*-
-# 
+#
 # from odoo import models, fields, api, _
 # import odoo.addons.decimal_precision as dp
 # from odoo.tools import float_is_zero, float_compare, DEFAULT_SERVER_DATETIME_FORMAT
-# 
+#
 # class SupportInvoiceLine(models.Model):
 #     _name = "support.invoice.line"
-#     
+#
 #     product_id = fields.Many2one(
 #         'product.product',
 #         string='Product',
@@ -26,8 +26,8 @@
 #         default=1
 #     )
 #     product_uom_qty = fields.Float(
-#         string='Quantity', 
-#         digits=dp.get_precision('Product Unit of Measure'), 
+#         string='Quantity',
+#         digits=dp.get_precision('Product Unit of Measure'),
 #         required=True, default=1.0,
 #     )
 #     product_uom = fields.Many2one(
@@ -52,7 +52,7 @@
 #         default=False,
 #         copy=False,
 #     )
-# 
+#
 #     @api.multi
 #     def _compute_tax_id(self):
 #         for line in self:
@@ -60,7 +60,7 @@
 #             # If company_id is set, always filter taxes by the company
 #             taxes = line.product_id.taxes_id
 #             line.tax_id = taxes
-# 
+#
 #     @api.multi
 #     @api.onchange('product_id')
 #     def product_id_change(self):
@@ -74,7 +74,7 @@
 #         vals['name'] = self.product_id.name
 #         self.update(vals)
 #         return {'domain': domain}
-#         
+#
 #     @api.onchange('product_uom', 'product_uom_qty')
 #     def product_uom_change(self):
 #         if not self.product_uom:
@@ -91,6 +91,6 @@
 #                 fiscal_position=self.env.context.get('fiscal_position'),
 #             )
 #             self.price_unit = self.env['account.tax']._fix_tax_included_price(product.price, product.taxes_id, self.tax_id)
-#         
-#     
+#
+#
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

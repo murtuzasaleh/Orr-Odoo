@@ -2,8 +2,12 @@ import math
 from datetime import datetime, timedelta
 
 from .data_types import (
-    Header, FileControl, BatchHeader,
-    BatchControl, EntryDetail, AddendaRecord
+    Header,
+    FileControl,
+    BatchHeader,
+    BatchControl,
+    EntryDetail,
+    AddendaRecord,
 )
 
 
@@ -24,9 +28,11 @@ class AchFile(object):
 
         try:
             self.header = Header(
-                settings['immediate_dest'],
-                settings['immediate_org'], file_id_mod,
-                settings['immediate_dest_name'], settings['immediate_org_name']
+                settings["immediate_dest"],
+                settings["immediate_org"],
+                file_id_mod,
+                settings["immediate_dest_name"],
+                settings["immediate_org_name"],
             )
         except KeyError:
             raise Exception(
@@ -36,8 +42,14 @@ class AchFile(object):
 
         self.batches = list()
 
-    def add_batch(self, std_ent_cls_code, batch_entries=None,
-                  credits=True, debits=False, eff_ent_date=None):
+    def add_batch(
+        self,
+        std_ent_cls_code,
+        batch_entries=None,
+        credits=True,
+        debits=False,
+        eff_ent_date=None,
+    ):
         """
         Use this to add batches to the file. For valid std_ent_cls_codes see:
         http://en.wikipedia.org/wiki/Automated_Clearing_House#SEC_codes
@@ -53,26 +65,26 @@ class AchFile(object):
             eff_ent_date = datetime.today() + timedelta(days=1)
 
         if credits and debits:
-            serv_cls_code = '200'
+            serv_cls_code = "200"
         elif credits:
-            serv_cls_code = '220'
+            serv_cls_code = "220"
         elif debits:
-            serv_cls_code = '225'
-        
-        if std_ent_cls_code == 'CTX':
-            serv_cls_code = '200'
+            serv_cls_code = "225"
+
+        if std_ent_cls_code == "CTX":
+            serv_cls_code = "200"
 
         batch_header = BatchHeader(
             serv_cls_code=serv_cls_code,
             batch_id=batch_count,
-            company_id=self.settings['company_id'],
+            company_id=self.settings["company_id"],
             std_ent_cls_code=std_ent_cls_code,
             entry_desc=entry_desc,
-            desc_date='',
-            eff_ent_date=eff_ent_date.strftime('%y%m%d'),  # YYMMDD
-            orig_stat_code='1',
-            orig_dfi_id=self.settings['immediate_dest'][:8],
-            company_name=self.settings['immediate_org_name']
+            desc_date="",
+            eff_ent_date=eff_ent_date.strftime("%y%m%d"),  # YYMMDD
+            orig_stat_code="1",
+            orig_dfi_id=self.settings["immediate_dest"][:8],
+            company_name=self.settings["immediate_org_name"],
         )
 
         entries = list()
@@ -81,35 +93,36 @@ class AchFile(object):
 
             entry = EntryDetail(std_ent_cls_code)
 
-            entry.transaction_code = record.get('type')
-            entry.recv_dfi_id = record.get('routing_number')
+            entry.transaction_code = record.get("type")
+            entry.recv_dfi_id = record.get("routing_number")
 
-            if len(record['routing_number']) < 9:
+            if len(record["routing_number"]) < 9:
                 entry.calc_check_digit()
             else:
-                entry.check_digit = record['routing_number'][8]
+                entry.check_digit = record["routing_number"][8]
 
-            entry.dfi_acnt_num = record['account_number']
-            entry.amount = int(round(float(record['amount']) * 100))
+            entry.dfi_acnt_num = record["account_number"]
+            entry.amount = int(round(float(record["amount"]) * 100))
             # Check for CTX
-            if entry_desc == 'RSAPAYMENT':
+            if entry_desc == "RSAPAYMENT":
                 # 8th field
-                if record.get('addenda', False):
-                    entry.num_add_recs = len(record.get('addenda')[0])
+                if record.get("addenda", False):
+                    entry.num_add_recs = len(record.get("addenda")[0])
                 else:
                     entry.num_add_recs = 0
                 # 9th field
-                entry.recv_cmpy_name = record['name'].upper()[:16]
+                entry.recv_cmpy_name = record["name"].upper()[:16]
             else:
-                entry.ind_name = record['name'].upper()[:22]
+                entry.ind_name = record["name"].upper()[:22]
             # 10th field
-                # Blank with two positions 75 and 76
+            # Blank with two positions 75 and 76
             # 11th field
-                # Optional field two positions 77 and 78, blank
-            entry.trace_num = self.settings['immediate_dest'][:8] \
-                + entry.validate_numeric_field(entry_counter, 7)
+            # Optional field two positions 77 and 78, blank
+            entry.trace_num = self.settings["immediate_dest"][
+                :8
+            ] + entry.validate_numeric_field(entry_counter, 7)
 
-            entries.append((entry, record.get('addenda', [])))
+            entries.append((entry, record.get("addenda", [])))
             entry_counter += 1
 
         self.batches.append(FileBatch(batch_header, entries))
@@ -125,8 +138,12 @@ class AchFile(object):
         credit_amount = self.get_credit_amount(self.batches)
 
         self.control = FileControl(
-            batch_count, block_count, entadd_count,
-            entry_hash, debit_amount, credit_amount
+            batch_count,
+            block_count,
+            entadd_count,
+            entry_hash,
+            debit_amount,
+            credit_amount,
         )
 
     def get_block_count(self, batches):
@@ -141,8 +158,13 @@ class AchFile(object):
 
         entadd_count = self.get_entadd_count(batches)
 
-        lines = header_count + control_count + batch_header_count \
-            + batch_footer_count + entadd_count
+        lines = (
+            header_count
+            + control_count
+            + batch_header_count
+            + batch_footer_count
+            + entadd_count
+        )
 
         return lines
 
@@ -180,16 +202,15 @@ class AchFile(object):
         credit_amount = 0
 
         for batch in batches:
-            credit_amount = credit_amount + \
-                int(batch.batch_control.credit_amount)
+            credit_amount = credit_amount + int(batch.batch_control.credit_amount)
 
         return credit_amount
 
     def get_nines(self, rows, line_ending):
-        nines = ''
+        nines = ""
 
         for i in range(rows):
-            nines += '9'*94
+            nines += "9" * 94
             if i == rows - 1:
                 continue
             nines += line_ending
@@ -198,14 +219,14 @@ class AchFile(object):
 
     def get_entry_desc(self, std_ent_cls_code):
 
-        if std_ent_cls_code == 'PPD':
-            entry_desc = 'PAYROLL'
-        elif std_ent_cls_code == 'CCD':
-            entry_desc = 'DUES'
-        elif std_ent_cls_code == 'CTX':
-            entry_desc = 'RSAPAYMENT'
+        if std_ent_cls_code == "PPD":
+            entry_desc = "PAYROLL"
+        elif std_ent_cls_code == "CCD":
+            entry_desc = "DUES"
+        elif std_ent_cls_code == "CTX":
+            entry_desc = "RSAPAYMENT"
         else:
-            entry_desc = 'OTHER'
+            entry_desc = "OTHER"
 
         return entry_desc
 
@@ -253,11 +274,11 @@ class FileBatch(object):
         self.entries = []
 
         for entry, addenda in entries:
-            entadd_count += 1 # Commented out because its giving wrong no of addenda.
+            entadd_count += 1  # Commented out because its giving wrong no of addenda.
             entadd_count += len(addenda)
             self.entries.append(FileEntry(entry, addenda))
 
-        #set up batch_control
+        # set up batch_control
 
         batch_control = BatchControl(self.batch_header.serv_cls_code)
         # Making it Batch control 200 for CTX type of Transaction
@@ -292,8 +313,7 @@ class FileBatch(object):
         debit_amount = 0
 
         for entry in entries:
-            if str(entry.entry_detail.transaction_code) in \
-                    ['27', '37', '28', '38']:
+            if str(entry.entry_detail.transaction_code) in ["27", "37", "28", "38"]:
                 debit_amount = debit_amount + int(entry.entry_detail.amount)
 
         return debit_amount
@@ -302,8 +322,7 @@ class FileBatch(object):
         credit_amount = 0
 
         for entry in entries:
-            if str(entry.entry_detail.transaction_code) in \
-                    ['22', '32', '23', '33']:
+            if str(entry.entry_detail.transaction_code) in ["22", "32", "23", "33"]:
                 credit_amount += int(entry.entry_detail.amount)
 
         return credit_amount
@@ -343,14 +362,14 @@ class FileEntry(object):
         self.addenda_record = []
 
         for index, addenda in enumerate(addenda_record):
-            payment_related_info = addenda.get('payment_related_info').replace("/","_")
-            payment_related_info = payment_related_info.replace("-","_")
+            payment_related_info = addenda.get("payment_related_info").replace("/", "_")
+            payment_related_info = payment_related_info.replace("-", "_")
             self.addenda_record.append(
                 AddendaRecord(
                     self.entry_detail.std_ent_cls_code,
                     pmt_rel_info=payment_related_info.upper(),
-                    add_seq_num=index+1,
-                    ent_det_seq_num=entry_detail.trace_num[-7:]
+                    add_seq_num=index + 1,
+                    ent_det_seq_num=entry_detail.trace_num[-7:],
                 )
             )
 

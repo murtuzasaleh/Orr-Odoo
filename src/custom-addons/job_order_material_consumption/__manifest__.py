@@ -2,12 +2,12 @@
 # Part of Probuse Consulting Service Pvt Ltd. See LICENSE file for full copyright and licensing details.
 
 {
-    'name': 'Material Consumption on Job Order / Work Order',
-    'currency': 'EUR',
-    'license': 'Other proprietary',
-    'price': 99.0,
-    'summary': """Material Consumption on Job Order / Work Order""",
-    'description': """
+    "name": "Material Consumption on Job Order / Work Order",
+    "currency": "EUR",
+    "license": "Other proprietary",
+    "price": 99.0,
+    "summary": """Material Consumption on Job Order / Work Order""",
+    "description": """
 Job Order Material Consumption
 Material Consumption on Job Order
 
@@ -63,26 +63,24 @@ Construction app
 Construction 
 
     """,
-    'author': "Probuse Consulting Service Pvt. Ltd.",
-    'website': "http://www.probuse.com",
-    'support': 'contact@probuse.com',
-    'live_test_url': 'https://youtu.be/g4nT6gVyeqs',
-    'images': ['static/description/img1.jpg'],
-    'version': '1.1.1',
-    'category' : 'Project',
-    'depends': [
-        'odoo_job_costing_management',
+    "author": "Probuse Consulting Service Pvt. Ltd.",
+    "website": "http://www.probuse.com",
+    "support": "contact@probuse.com",
+    "live_test_url": "https://youtu.be/g4nT6gVyeqs",
+    "images": ["static/description/img1.jpg"],
+    "version": "1.1.1",
+    "category": "Project",
+    "depends": ["odoo_job_costing_management",],
+    "data": [
+        "security/ir.model.access.csv",
+        "views/stock_picking_view.xml",
+        "views/project_task_view.xml",
+        "views/task_report_view.xml",
+        "views/consumption_type_view.xml",
+        "views/stock_move_views.xml",
     ],
-    'data':[
-        'security/ir.model.access.csv',
-        'views/stock_picking_view.xml',
-        'views/project_task_view.xml',
-        'views/task_report_view.xml',
-        'views/consumption_type_view.xml',
-        'views/stock_move_views.xml',
-    ],
-    'installable' : True,
-    'application' : False,
+    "installable": True,
+    "application": False,
 }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

@@ -8,15 +8,8 @@ from odoo.exceptions import UserError
 class AccountMove(models.Model):
     _inherit = "account.move"
 
-    restrict_for_void = fields.Boolean(
-        string="Entry Voided",
-        default=False,
-    )
-    void_txn = fields.Many2one(
-        "account.move",
-        string="Void Txn",
-        default=False,
-    )
+    restrict_for_void = fields.Boolean(string="Entry Voided", default=False,)
+    void_txn = fields.Many2one("account.move", string="Void Txn", default=False,)
 
     @api.multi
     def button_cancel(self):

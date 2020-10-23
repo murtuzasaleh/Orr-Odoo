@@ -6,20 +6,19 @@ from odoo import api, fields, models, _
 
 class PartnerAgingDate(models.TransientModel):
     _name = "partner.aging.date"
-    _description = 'Partner Aging Date'
+    _description = "Partner Aging Date"
 
     age_date = fields.Datetime(
-                        string="Aging Date",
-                        required=True,
-                        default=lambda self: fields.Datetime.now())
+        string="Aging Date", required=True, default=lambda self: fields.Datetime.now()
+    )
 
     @api.multi
     def open_partner_aging(self):
         ctx = self._context.copy()
         age_date = self.age_date
-        ctx.update({'age_date': age_date})
+        ctx.update({"age_date": age_date})
 
-        customer_aging = self.env['partner.aging.customer.ad']
+        customer_aging = self.env["partner.aging.customer.ad"]
 
         query = """
                 SELECT
@@ -175,32 +174,50 @@ class PartnerAgingDate(models.TransientModel):
                 and aml.amount_residual!=0
                 GROUP BY aml.partner_id, aml.id, ai.number, days_due,\
                  ai.user_id, ai.id
-              """ % (age_date, age_date, age_date, age_date, age_date,\
-                     age_date, age_date, age_date, age_date, age_date,\
-                     age_date, age_date, age_date, age_date, age_date,\
-                     age_date)
-        tools.drop_view_if_exists(self.env.cr, '%s' % (\
-                                    customer_aging._name.replace('.', '_')))
-        self.env.cr.execute("""
+              """ % (
+            age_date,
+            age_date,
+            age_date,
+            age_date,
+            age_date,
+            age_date,
+            age_date,
+            age_date,
+            age_date,
+            age_date,
+            age_date,
+            age_date,
+            age_date,
+            age_date,
+            age_date,
+            age_date,
+        )
+        tools.drop_view_if_exists(
+            self.env.cr, "%s" % (customer_aging._name.replace(".", "_"))
+        )
+        self.env.cr.execute(
+            """
                       CREATE OR REPLACE VIEW %s AS ( %s)
-        """ % (customer_aging._name.replace('.', '_'), query))
+        """
+            % (customer_aging._name.replace(".", "_"), query)
+        )
 
         return {
-              'name': _('Customer Aging'),
-              'view_type': 'form',
-              "view_mode": 'tree,form',
-              'res_model': 'partner.aging.customer.ad',
-              'type': 'ir.actions.act_window',
-              'domain': [('total', '!=', 0)],
-              'context': ctx,
+            "name": _("Customer Aging"),
+            "view_type": "form",
+            "view_mode": "tree,form",
+            "res_model": "partner.aging.customer.ad",
+            "type": "ir.actions.act_window",
+            "domain": [("total", "!=", 0)],
+            "context": ctx,
         }
 
 
 class AccountAgingCustomerAD(models.Model):
-    _name = 'partner.aging.customer.ad'
-    _description = 'Partner Aging Customer Ad'
-    _order = 'partner_id'
-    _rec_name = 'partner_id'
+    _name = "partner.aging.customer.ad"
+    _description = "Partner Aging Customer Ad"
+    _order = "partner_id"
+    _rec_name = "partner_id"
     _auto = False
 
     @api.multi
@@ -210,99 +227,64 @@ class AccountAgingCustomerAD(models.Model):
                       unapplied payment or outstanding balance on this line
         """
 
-        models = self.env['ir.model.data']
+        models = self.env["ir.model.data"]
         # Get this line's invoice id
         inv_id = self.invoice_id.id
         # if this is an unapplied payment
         # (all unapplied payments hard-coded to -999),
         # get the referenced voucher
         if inv_id == -999:
-            payment_pool = self.env['account.voucher']
+            payment_pool = self.env["account.voucher"]
             # Get referenced customer payment (invoice_ref field is actually a
             # -payment for these)
-            voucher_id = payment_pool.search([
-                                        ('number', '=', self.invoice_ref)])[0]
-            view = models.xmlid_to_object('account_voucher.view_voucher_form')
+            voucher_id = payment_pool.search([("number", "=", self.invoice_ref)])[0]
+            view = models.xmlid_to_object("account_voucher.view_voucher_form")
             # Set values for form
             view_id = view and view.id or False
-            name = 'Customer Payments'
-            res_model = 'account.voucher'
+            name = "Customer Payments"
+            res_model = "account.voucher"
             ctx = "{}"
             doc_id = voucher_id
         # otherwise get the invoice
         else:
-            view = models.xmlid_to_object('account.invoice_form')
+            view = models.xmlid_to_object("account.invoice_form")
             view_id = view and view.id or False
-            name = 'Customer Invoices'
-            res_model = 'account.invoice'
+            name = "Customer Invoices"
+            res_model = "account.invoice"
             ctx = "{'type':'out_invoice'}"
             doc_id = inv_id
         if not doc_id:
             return {}
         # Open up the document's form
         return {
-            'name': _(name),
-            'view_type': 'form',
-            'view_mode': 'form',
-            'view_id': [view_id],
-            'res_model': res_model,
-            'context': ctx,
-            'type': 'ir.actions.act_window',
-            'nodestroy': True,
-            'target': 'current',
-            'res_id': doc_id,
+            "name": _(name),
+            "view_type": "form",
+            "view_mode": "form",
+            "view_id": [view_id],
+            "res_model": res_model,
+            "context": ctx,
+            "type": "ir.actions.act_window",
+            "nodestroy": True,
+            "target": "current",
+            "res_id": doc_id,
         }
 
-    partner_id = fields.Many2one(
-                             'res.partner',
-                             u'Partner',
-                             readonly=True)
-    avg_days_overdue = fields.Integer(
-                                u'Avg Days Overdue',
-                                readonly=True)
-    date = fields.Date(u'Date', readonly=True)
-    date_due = fields.Date(
-                        u'Due Date',
-                        readonly=True)
-    inv_date_due = fields.Date(
-                        u'Invoice Date',
-                        readonly=True)
-    total = fields.Float(
-                    u'Total',
-                    readonly=True)
-    not_due = fields.Float(
-                    u'Current',
-                    readonly=True)
-    days_due_01to30 = fields.Float(
-                            u'1/30',
-                            readonly=True)
-    days_due_31to60 = fields.Float(
-                            u'31/60',
-                            readonly=True)
-    days_due_61to90 = fields.Float(
-                            u'61/90',
-                            readonly=True)
-    days_due_91to120 = fields.Float(
-                            u'91/120',
-                            readonly=True)
-    days_due_121togr = fields.Float(
-                            u'+121',
-                            readonly=True)
-    max_days_overdue = fields.Integer(
-                                u'Days Outstanding',
-                                readonly=True)
-    invoice_ref = fields.Char(
-                        'Our Invoice',
-                        size=25,
-                        readonly=True)
-    invoice_id = fields.Many2one(
-                            'account.invoice',
-                            'Invoice',
-                            readonly=True)
-    salesman = fields.Many2one(
-                        'res.users',
-                        u'Sales Rep',
-                        readonly=True)
+    partner_id = fields.Many2one("res.partner", u"Partner", readonly=True)
+    avg_days_overdue = fields.Integer(u"Avg Days Overdue", readonly=True)
+    date = fields.Date(u"Date", readonly=True)
+    date_due = fields.Date(u"Due Date", readonly=True)
+    inv_date_due = fields.Date(u"Invoice Date", readonly=True)
+    total = fields.Float(u"Total", readonly=True)
+    not_due = fields.Float(u"Current", readonly=True)
+    days_due_01to30 = fields.Float(u"1/30", readonly=True)
+    days_due_31to60 = fields.Float(u"31/60", readonly=True)
+    days_due_61to90 = fields.Float(u"61/90", readonly=True)
+    days_due_91to120 = fields.Float(u"91/120", readonly=True)
+    days_due_121togr = fields.Float(u"+121", readonly=True)
+    max_days_overdue = fields.Integer(u"Days Outstanding", readonly=True)
+    invoice_ref = fields.Char("Our Invoice", size=25, readonly=True)
+    invoice_id = fields.Many2one("account.invoice", "Invoice", readonly=True)
+    salesman = fields.Many2one("res.users", u"Sales Rep", readonly=True)
 
     @api.model_cr
     def init(self):
@@ -450,7 +432,10 @@ class AccountAgingCustomerAD(models.Model):
                 GROUP BY aml.partner_id, aml.id, ai.number, days_due, \
                 ai.user_id, ai.id
               """
-        tools.drop_view_if_exists(cr, '%s' % (self._name.replace('.', '_')))
-        cr.execute("""
+        tools.drop_view_if_exists(cr, "%s" % (self._name.replace(".", "_")))
+        cr.execute(
+            """
                       CREATE OR REPLACE VIEW %s AS ( %s)
-        """ % (self._name.replace('.', '_'), query))
+        """
+            % (self._name.replace(".", "_"), query)
+        )

@@ -10,8 +10,10 @@ class Project(models.Model):
     @api.multi
     def action_project_package(self):
         self.ensure_one()
-        action = self.env.ref("job_costing_work_package.project_work_pacakges_action").read([])[0]
-        action['domain'] = [('project_id', 'in', self.ids)]
+        action = self.env.ref(
+            "job_costing_work_package.project_work_pacakges_action"
+        ).read([])[0]
+        action["domain"] = [("project_id", "in", self.ids)]
         return action
 
 
@@ -21,6 +23,8 @@ class ProjectTask(models.Model):
     @api.multi
     def action_task_package(self):
         self.ensure_one()
-        action = self.env.ref("job_costing_work_package.project_work_pacakges_action").read([])[0]
-        action['domain'] = [('task_ids', 'in', self.ids)]
+        action = self.env.ref(
+            "job_costing_work_package.project_work_pacakges_action"
+        ).read([])[0]
+        action["domain"] = [("task_ids", "in", self.ids)]
         return action

@@ -2,4 +2,3 @@
 
 from . import project
 from . import maintenance_request
-

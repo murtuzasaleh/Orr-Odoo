@@ -6,9 +6,8 @@ from odoo.exceptions import ValidationError
 
 
 class TestBank(TransactionCase):
-
     def test_bank(self):
-        bank = self.env['res.bank'].search([], limit=1)
+        bank = self.env["res.bank"].search([], limit=1)
         self.assertTrue(bank)
         with self.assertRaises(ValidationError):
             bank.bic = "TEST"

@@ -3,22 +3,21 @@
 # Part of Probuse Consulting Service Pvt Ltd. See LICENSE file for full copyright and licensing details.
 
 {
-    'name': 'Document Management for Job Contracting and Construction',
-    'version': '1.1',
-        'price': 1.0,
-
-    'category' : 'Projects',
-    'depends': [
-        'odoo_job_costing_management',
-        'odoo_document_version',
-        'document_directory_extension_security',
-        'document_directory_extension',
-        'document_directory_myaccount_portal',
+    "name": "Document Management for Job Contracting and Construction",
+    "version": "1.1",
+    "price": 1.0,
+    "category": "Projects",
+    "depends": [
+        "odoo_job_costing_management",
+        "odoo_document_version",
+        "document_directory_extension_security",
+        "document_directory_extension",
+        "document_directory_myaccount_portal",
     ],
-    'license': 'Other proprietary',
-    'currency': 'EUR',
-    'summary': """This app provide some document managment features for job contracting and construction.""",
-    'description': """
+    "license": "Other proprietary",
+    "currency": "EUR",
+    "summary": """This app provide some document managment features for job contracting and construction.""",
+    "description": """
 
 document versioning
 versioning
@@ -484,18 +483,18 @@ odoo Construction
 
     
 """,
-    'author': 'Probuse Consulting Service Pvt. Ltd.',
-    'website': 'http://www.probuse.com',
-    'support': 'contact@probuse.com',
-    'images': ['static/description/img1.jpg'],
-    'live_test_url': 'https://www.youtube.com/watch?v=8oIUlpvgyQc',
-    'data':[
-            'views/menu_view.xml',
-            'views/project_view.xml',
-            'views/job_cost_view.xml',
+    "author": "Probuse Consulting Service Pvt. Ltd.",
+    "website": "http://www.probuse.com",
+    "support": "contact@probuse.com",
+    "images": ["static/description/img1.jpg"],
+    "live_test_url": "https://www.youtube.com/watch?v=8oIUlpvgyQc",
+    "data": [
+        "views/menu_view.xml",
+        "views/project_view.xml",
+        "views/job_cost_view.xml",
     ],
-    'installable' : True,
-    'application' : False,
+    "installable": True,
+    "application": False,
 }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

@@ -11,10 +11,7 @@
     "website": "http://www.opensourceintegrators.com",
     "category": "Accounting",
     "depends": ["account"],
-    "data": [
-        "views/res_partner.xml",
-        "data/ir_cron.xml",
-    ],
+    "data": ["views/res_partner.xml", "data/ir_cron.xml",],
     "development_status": "beta",
     "installable": True,
 }

@@ -3,15 +3,14 @@
 # Part of Probuse Consulting Service Pvt Ltd. See LICENSE file for full copyright and licensing details.
 
 {
-    'name': "Customer Invoice from Job Cost Sheet",
-    'version': '1.0',
-        'price': 49.0,
-
-    'category' : 'Sales',
-    'license': 'Other proprietary',
-    'currency': 'EUR',
-    'summary': """This module allow you to create customer invoice directly from Job Cost Sheet.""",
-    'description': """
+    "name": "Customer Invoice from Job Cost Sheet",
+    "version": "1.0",
+    "price": 49.0,
+    "category": "Sales",
+    "license": "Other proprietary",
+    "currency": "EUR",
+    "summary": """This module allow you to create customer invoice directly from Job Cost Sheet.""",
+    "description": """
     Odoo Customer Progress Billing
 provide progress billing information on invoice
 progress bill for invoice
@@ -228,25 +227,21 @@ billing report
 progress bill status
 report progress billing
 """,
-    'author': "Probuse Consulting Service Pvt. Ltd.",
-    'website': "http://www.probuse.com",
-    'support': 'contact@probuse.com',
-    'images': ['static/description/img1.jpg'],
-    'live_test_url': 'https://youtu.be/SzjEDta1Xq8',
-    
-    'depends': [
-                'odoo_job_costing_management',
-                'odoo_customer_progress_billing',
-                ],
-    'data':[
-        'wizard/job_costing_invoice_wiz.xml',
-        'views/jobcost_sheet_view.xml',
-        'views/account_invoice.xml',
-        'views/job_costing_report.xml',
+    "author": "Probuse Consulting Service Pvt. Ltd.",
+    "website": "http://www.probuse.com",
+    "support": "contact@probuse.com",
+    "images": ["static/description/img1.jpg"],
+    "live_test_url": "https://youtu.be/SzjEDta1Xq8",
+    "depends": ["odoo_job_costing_management", "odoo_customer_progress_billing",],
+    "data": [
+        "wizard/job_costing_invoice_wiz.xml",
+        "views/jobcost_sheet_view.xml",
+        "views/account_invoice.xml",
+        "views/job_costing_report.xml",
     ],
-    'installable' : True,
-    'application' : False,
-    'auto_install' : False,
+    "installable": True,
+    "application": False,
+    "auto_install": False,
 }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

@@ -4,10 +4,10 @@
 
 from odoo import models, fields, api
 
+
 class ResPartner(models.Model):
-    _inherit="res.partner"
+    _inherit = "res.partner"
 
-    payment_method = fields.Many2one("custom.payment.method",
-                                     string="User Payment Type")
-
-        
+    payment_method = fields.Many2one(
+        "custom.payment.method", string="User Payment Type"
+    )

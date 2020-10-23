@@ -3,24 +3,20 @@
 # Part of Probuse Consulting Service Pvt Ltd. See LICENSE file for full copyright and licensing details.
 
 {
-    'name': 'Equipment and Maintenance Request for Job Work Order',
-        'price': 10.0,
-
-    'version': '1.0',
-    'depends': [
-               'odoo_job_costing_management',
-               'maintenance',
-                ],
-    'currency': 'EUR',
-    'category': 'Projects',
-    'license': 'Other proprietary',
-    'author': 'Probuse Consulting Service Pvt. Ltd.',
-    'website': 'http://www.probuse.com',
-    'support': 'contact@probuse.com',
-    'images': ['static/description/img1.jpg'],
-    'live_test_url': 'https://youtu.be/H4qopxjNTlI',
-    'summary': """This app allow you to manage Equipments and Equipment Maintenance Request for Job Work order.""",
-    'description': """
+    "name": "Equipment and Maintenance Request for Job Work Order",
+    "price": 10.0,
+    "version": "1.0",
+    "depends": ["odoo_job_costing_management", "maintenance",],
+    "currency": "EUR",
+    "category": "Projects",
+    "license": "Other proprietary",
+    "author": "Probuse Consulting Service Pvt. Ltd.",
+    "website": "http://www.probuse.com",
+    "support": "contact@probuse.com",
+    "images": ["static/description/img1.jpg"],
+    "live_test_url": "https://youtu.be/H4qopxjNTlI",
+    "summary": """This app allow you to manage Equipments and Equipment Maintenance Request for Job Work order.""",
+    "description": """
 print maintenance request
 maintenance request report
 maintenance request pdf
@@ -233,16 +229,16 @@ Create Maintenance Request
 Create Equipment Request
 
     """,
-    'data':[
-        'security/ir.model.access.csv',
-        'wizard/maintenance_equipment_view.xml',
-        'wizard/maintenance_request_view.xml',
-        'views/project_task_views.xml',
-        'views/maintenance_equipment_views.xml',
-        'views/maintenance_request_views.xml',
+    "data": [
+        "security/ir.model.access.csv",
+        "wizard/maintenance_equipment_view.xml",
+        "wizard/maintenance_request_view.xml",
+        "views/project_task_views.xml",
+        "views/maintenance_equipment_views.xml",
+        "views/maintenance_request_views.xml",
     ],
-    'installable' : True,
-    'application' : False,
+    "installable": True,
+    "application": False,
 }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
