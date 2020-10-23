@@ -49,6 +49,7 @@ class VisitVisit(models.Model):
             'location_directions': sale_rec.fsm_location_id.direction,
             'request_early': sale_rec.date_order,
             'scheduled_date_start': sale_rec.date_order,
+            'scheduled_duration': self.hours,
             'sale_id': sale_rec.id,
             'company_id': sale_rec.company_id.id,
         }

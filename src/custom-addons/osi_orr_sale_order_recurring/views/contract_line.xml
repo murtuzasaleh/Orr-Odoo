@@ -68,10 +68,12 @@
                     <button name="generate_visits"
                             type="object"
                             string="Generate Visits"
+                            attrs="{'invisible': [('id', '=', False)]}"
                             class="btn-primary"/>
                     <button name="update_visits_pricing"
                             type="object"
                             string="Update Visits Pricing"
+                            attrs="{'invisible': [('id', '=', False)]}"
                             class="btn-primary"/>
                 </group>
                 <separator string="Visit"/>
