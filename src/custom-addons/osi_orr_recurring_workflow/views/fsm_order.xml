@@ -20,27 +20,4 @@
         </field>
     </record>
 
-    <record id="fsm_order_form_notes" model="ir.ui.view">
-        <field name="name">fsm.order.form.notes</field>
-        <field name="model">fsm.order</field>
-        <field name="inherit_id" ref="fieldservice.fsm_order_form"/>
-        <field name="arch" type="xml">
-            <notebook position="inside">
-                <page string="Notes" name="notes_page">
-                    <group string="Private Notes" name="private_notes_grp">
-                        <field name="private_notes" nolabel="1" widget="html"/>
-                        <!-- <label for="previous_private_notes" /> -->
-                        <field name="previous_private_notes" nolabel="0"/>
-
-                    </group>
-                    <group string="Public Notes" name="public_notes_grp">
-                        <field name="public_notes" nolabel="1" widget="html"/>
-                        <field name="previous_public_notes" nolabel="0"/>
-                         <!-- <label for="previous_private_notes" /> -->
-                    </group>
-                </page>
-            </notebook>
-        </field>
-    </record>
-    
 </odoo>
