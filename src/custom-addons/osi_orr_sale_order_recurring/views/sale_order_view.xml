@@ -1,0 +1,30 @@
+<odoo>
+
+    <record id="view_order_form_inherit_so_recurring" model="ir.ui.view">
+        <field name="name">sale.order.form.sale.recurring</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <field name="payment_term_id" position="after">
+                <field name="contract_id" invisible="1"/>
+            </field>
+            <xpath expr="//button[@name='action_confirm']" position="after">
+                <button name="create_contract"
+                        string="Create Contract" type="object"
+                        states="draft"
+                        attrs="{'invisible': [('contract_id', '!=', False)]}"
+                        /> 
+            </xpath>
+            <xpath expr="//button[@name='action_view_invoice']" position="after">
+                <button type="object"
+                        name="action_view_contract"
+                        class="oe_stat_button"
+                        icon="fa-list"
+                        string="Contract"
+                        attrs="{'invisible': [('contract_id', '=', False)]}">
+                </button>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

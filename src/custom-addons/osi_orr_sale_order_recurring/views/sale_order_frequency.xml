@@ -1,0 +1,72 @@
+<odoo>
+
+    <record id="sale_order_frequency_view_tree" model="ir.ui.view">
+        <field name="name">sale.order.frequency.tree</field>
+        <field name="model">sale.order.frequency</field>
+        <field name="arch" type="xml">
+            <tree string="Frequency">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="sale_order_frequency_view_form" model="ir.ui.view">
+        <field name="name">sale.order.frequency.form</field>
+        <field name="model">sale.order.frequency</field>
+        <field name="arch" type="xml">
+            <form string="Frequency">
+                <sheet>
+                    <group>
+                        <field name="name" required="1"/>
+                    </group>
+                    <separator string="Frequency Line Template"/>
+                    <field name="freq_template_ids" nolable="1">
+                        <tree string="Frequency Line Template">
+                            <field name="sequence" widget="handle"/>
+                            <field name="recurrence_id"/>
+                            <field name="recurrence_ids"/>
+                            <field name="visit_type"/>
+                        </tree>
+                        <form string="Frequency Line Template">
+                            <sheet>
+                                <group>
+                                    <field name="sequence"/>
+                                    <field name="recurrence_id"/>
+                                    <field name="recurrence_ids"/>
+                                    <field name="visit_type"/>
+                                </group>
+                            </sheet>
+                        </form>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="sale_order_frequency_view_search" model="ir.ui.view">
+        <field name="name">sale.order.frequency.search</field>
+        <field name="model">sale.order.frequency</field>
+        <field name="arch" type="xml">
+            <search string="Frequency">
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_sale_order_frequency_form" model="ir.actions.act_window">
+        <field name="name">Frequency</field>
+        <field name="res_model">sale.order.frequency</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="sale_order_frequency_view_tree"/>
+        <field name="search_view_id" ref="sale_order_frequency_view_search"/>
+    </record>
+
+    <menuitem id="menu_config_sale_order_frequency"
+              name="Frequency"
+              action="action_sale_order_frequency_form"
+              parent="contract.menu_config_contract"
+    />
+
+</odoo>

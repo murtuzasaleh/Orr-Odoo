@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_frequency_line_template_manager,frequency.line.template.manager,model_frequency_line_template,sales_team.group_sale_manager,1,1,1,1
+access_frequency_line_template_user,frequency.line.template.user,model_frequency_line_template,sales_team.group_sale_salesman,1,1,1,0
+access_recurrence_recurrence_manager,recurrence.recurrence.manager,model_recurrence_recurrence,sales_team.group_sale_manager,1,1,1,1
+access_recurrence_recurrence_user,recurrence.recurrence.user,model_recurrence_recurrence,sales_team.group_sale_salesman,1,1,1,0
+access_sale_order_frequency_manager,sale.order.frequency.manager,model_sale_order_frequency,sales_team.group_sale_manager,1,1,1,1
+access_sale_order_frequency_user,sale.order.frequency.user,model_sale_order_frequency,sales_team.group_sale_salesman,1,1,1,0
+access_sale_order_frequency_line_manager,sale.order.frequency.line.manager,model_sale_order_frequency_line,sales_team.group_sale_manager,1,1,1,1
+access_sale_order_frequency_line_user,sale.order.frequency.line.user,model_sale_order_frequency_line,sales_team.group_sale_salesman,1,1,1,0
+access_visit_visit_manager,visit.visit.manager,model_visit_visit,sales_team.group_sale_manager,1,1,1,1
+access_visit_visit_user,visit.visit.user,model_visit_visit,sales_team.group_sale_salesman,1,1,1,0
